@@ -82189,3 +82189,3391 @@ Hibernate:
     where
         sn1_0.receiver_id=? 
         and sn1_0.is_read=?
+2026-04-12T11:58:31.981+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T11:58:31.984+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T11:58:31.986+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T11:58:31.986+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T11:58:31.986+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T11:58:32.086+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T11:58:32.090+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T11:58:32.092+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T11:58:32.092+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T11:58:32.092+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T11:59:31.961+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T11:59:31.965+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T11:59:31.966+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T11:59:31.966+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T11:59:31.966+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T11:59:31.986+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T11:59:31.990+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T11:59:31.992+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T11:59:31.992+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T11:59:31.992+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:00:32.029+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:00:32.035+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-8] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:00:32.036+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:00:32.037+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-8] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:00:32.037+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-8] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:00:32.200+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:00:32.202+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-5] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:00:32.203+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:00:32.203+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-5] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:00:32.203+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-5] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:01:31.981+08:00 DEBUG 13016 --- [ipd-platform] [io-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:01:31.988+08:00 DEBUG 13016 --- [ipd-platform] [io-8080-exec-10] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:01:31.990+08:00 DEBUG 13016 --- [ipd-platform] [io-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:01:31.990+08:00 DEBUG 13016 --- [ipd-platform] [io-8080-exec-10] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:01:31.991+08:00 DEBUG 13016 --- [ipd-platform] [io-8080-exec-10] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:01:32.017+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:01:32.022+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-4] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:01:32.023+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:01:32.023+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-4] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:01:32.024+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-4] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:02:31.972+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:02:31.977+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-1] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:02:31.978+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:02:31.978+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-1] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:02:31.979+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-1] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:02:32.039+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:02:32.044+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-7] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:02:32.046+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:02:32.046+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-7] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:02:32.046+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-7] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:03:32.008+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:03:32.010+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:03:32.011+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:03:32.011+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:03:32.011+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:03:32.046+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:03:32.049+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:03:32.049+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:03:32.050+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:03:32.050+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:04:31.981+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:04:31.983+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:04:31.983+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:04:31.984+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:04:31.984+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:04:32.070+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:04:32.073+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:04:32.074+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:04:32.074+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:04:32.075+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:05:31.976+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:05:31.980+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-8] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:05:31.982+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:05:31.982+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-8] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:05:31.982+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-8] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:05:32.044+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:05:32.047+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-5] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:05:32.047+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:05:32.048+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-5] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:05:32.048+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-5] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:06:32.766+08:00 DEBUG 13016 --- [ipd-platform] [io-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:06:32.769+08:00 DEBUG 13016 --- [ipd-platform] [io-8080-exec-10] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:06:32.770+08:00 DEBUG 13016 --- [ipd-platform] [io-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:06:32.771+08:00 DEBUG 13016 --- [ipd-platform] [io-8080-exec-10] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:06:32.771+08:00 DEBUG 13016 --- [ipd-platform] [io-8080-exec-10] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:06:34.465+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:06:34.468+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-4] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:06:34.469+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:06:34.469+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-4] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:06:34.469+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-4] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:07:31.992+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:07:31.995+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-1] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:07:31.995+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:07:31.995+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-1] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:07:31.995+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-1] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:07:32.080+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:07:32.083+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-7] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:07:32.084+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:07:32.084+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-7] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:07:32.084+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-7] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:08:31.977+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:08:32.034+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:08:32.035+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:08:32.035+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:08:32.035+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:08:32.099+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:08:32.103+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:08:32.104+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:08:32.106+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:08:32.106+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:09:32.023+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:09:32.032+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:09:32.032+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:09:32.033+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:09:32.033+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:09:32.094+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:09:32.097+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:09:32.098+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:09:32.098+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:09:32.098+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:10:32.032+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:10:32.041+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-8] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:10:32.043+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:10:32.044+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-8] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:10:32.044+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-8] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:10:32.217+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:10:32.222+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-5] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:10:32.222+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:10:32.223+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-5] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:10:32.223+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-5] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:11:32.005+08:00 DEBUG 13016 --- [ipd-platform] [io-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:11:32.010+08:00 DEBUG 13016 --- [ipd-platform] [io-8080-exec-10] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:11:32.011+08:00 DEBUG 13016 --- [ipd-platform] [io-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:11:32.011+08:00 DEBUG 13016 --- [ipd-platform] [io-8080-exec-10] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:11:32.012+08:00 DEBUG 13016 --- [ipd-platform] [io-8080-exec-10] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:11:32.284+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:11:32.288+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-4] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:11:32.290+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:11:32.290+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-4] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:11:32.290+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-4] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:12:31.973+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:12:31.980+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-1] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:12:31.981+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:12:31.981+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-1] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:12:31.981+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-1] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:12:32.037+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:12:32.041+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-7] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:12:32.041+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:12:32.042+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-7] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:12:32.042+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-7] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:13:31.993+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:13:31.997+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:13:31.998+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:13:31.999+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:13:31.999+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:13:32.031+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:13:32.035+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:13:32.040+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:13:32.041+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:13:32.041+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:14:31.995+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:14:32.000+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:14:32.002+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:14:32.002+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:14:32.002+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:14:32.052+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:14:32.056+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:14:32.057+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:14:32.058+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:14:32.058+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:15:32.411+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:15:32.417+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-8] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:15:32.417+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:15:32.418+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-8] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:15:32.418+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-8] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:15:32.664+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:15:32.668+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-5] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:15:32.669+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:15:32.670+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-5] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:15:32.670+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-5] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:16:32.000+08:00 DEBUG 13016 --- [ipd-platform] [io-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:16:32.006+08:00 DEBUG 13016 --- [ipd-platform] [io-8080-exec-10] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:16:32.008+08:00 DEBUG 13016 --- [ipd-platform] [io-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:16:32.008+08:00 DEBUG 13016 --- [ipd-platform] [io-8080-exec-10] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:16:32.008+08:00 DEBUG 13016 --- [ipd-platform] [io-8080-exec-10] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:16:32.054+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:16:32.059+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-4] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:16:32.060+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:16:32.060+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-4] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:16:32.060+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-4] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:17:31.990+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:17:31.992+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-1] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:17:31.993+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:17:31.993+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-1] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:17:31.994+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-1] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:17:32.036+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:17:32.039+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-7] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:17:32.040+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:17:32.040+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-7] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:17:32.040+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-7] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:18:32.012+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:18:32.017+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:18:32.019+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:18:32.019+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:18:32.020+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-6] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:18:32.070+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:18:32.075+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:18:32.076+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:18:32.077+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:18:32.077+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-3] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:19:31.962+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:19:31.976+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:19:31.977+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:19:31.977+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:19:31.978+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-9] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
+2026-04-12T12:19:32.027+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /notifications/unread-count
+Hibernate: 
+    select
+        su1_0.id,
+        su1_0.avatar,
+        su1_0.created_at,
+        su1_0.created_by,
+        su1_0.email,
+        su1_0.gender,
+        su1_0.last_login_ip,
+        su1_0.last_login_time,
+        su1_0.nickname,
+        su1_0.password,
+        su1_0.phone,
+        r1_0.user_id,
+        r1_1.id,
+        r1_1.created_at,
+        r1_1.created_by,
+        r1_1.description,
+        r1_1.role_code,
+        r1_1.role_name,
+        r1_1.sort_order,
+        r1_1.status,
+        r1_1.updated_at,
+        r1_1.updated_by,
+        su1_0.status,
+        su1_0.updated_at,
+        su1_0.updated_by,
+        su1_0.user_type,
+        su1_0.username 
+    from
+        sys_user su1_0 
+    left join
+        (sys_user_role r1_0 
+    join
+        sys_role r1_1 
+            on r1_1.id=r1_0.role_id) 
+        on su1_0.id=r1_0.user_id 
+    where
+        su1_0.username=?
+Hibernate: 
+    select
+        p1_0.role_id,
+        p1_1.id,
+        p1_1.code,
+        p1_1.component,
+        p1_1.created_at,
+        p1_1.created_by,
+        p1_1.icon,
+        p1_1.is_public,
+        p1_1.name,
+        p1_1.parent_id,
+        p1_1.path,
+        p1_1.sort_order,
+        p1_1.status,
+        p1_1.type,
+        p1_1.updated_at,
+        p1_1.updated_by 
+    from
+        sys_role_permission p1_0 
+    join
+        sys_permission p1_1 
+            on p1_1.id=p1_0.permission_id 
+    where
+        p1_0.role_id=?
+2026-04-12T12:19:32.034+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T12:19:32.035+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /notifications/unread-count
+2026-04-12T12:19:32.036+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+2026-04-12T12:19:32.036+08:00 DEBUG 13016 --- [ipd-platform] [nio-8080-exec-2] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.NotificationController.getUnreadCount(); target is of class [com.ipd.platform.controller.NotificationController]
+Hibernate: 
+    select
+        count(sn1_0.id) 
+    from
+        sys_notification sn1_0 
+    where
+        sn1_0.receiver_id=? 
+        and sn1_0.is_read=?
