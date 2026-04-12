@@ -1,0 +1,10 @@
+com\ipd\platform\IpDPlatformApplicationTests.class
+com\ipd\platform\service\AuthServiceTest.class
+com\ipd\platform\controller\RequirementControllerTest$ListTests.class
+com\ipd\platform\controller\AuthControllerTest$ProtectedTests.class
+com\ipd\platform\controller\RequirementControllerTest$DeleteTests.class
+com\ipd\platform\controller\AuthControllerTest$LoginTests.class
+com\ipd\platform\controller\RequirementControllerTest$UpdateTests.class
+com\ipd\platform\controller\AuthControllerTest.class
+com\ipd\platform\controller\AuthControllerTest$RegisterTests.class
+com\ipd\platform\controller\RequirementControllerTest$CreateTests.class

@@ -1,0 +1,119 @@
+/* IPD Platform - Global Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #app {
+  height: 100%;
+  font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* 布局 */
+.app-container {
+  height: 100vh;
+  /* 移除 flex-direction: column，让 el-container 自然使用默认方向（row）
+     Element Plus el-container 默认: 外层 row，内层 column */
+}
+
+.main-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  overflow: auto;
+  padding: 20px;
+  background-color: #f5f7fa;
+}
+
+/* 卡片样式 */
+.content-card {
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* 表格样式 */
+.el-table {
+  font-size: 14px;
+}
+
+/* 按钮间距 */
+.el-button + .el-button {
+  margin-left: 8px;
+}
+
+/* 状态标签 */
+.status-tag {
+  border-radius: 3px;
+  padding: 2px 8px;
+  font-size: 12px;
+}
+
+.status-tag.pending {
+  background: #fef0f0;
+  color: #f56c6c;
+}
+
+.status-tag.success {
+  background: #f0f9ff;
+  color: #409eff;
+}
+
+.status-tag.info {
+  background: #f4f4f5;
+  color: #909399;
+}
+
+/* 优先级标签 */
+.priority-tag {
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.priority-tag.p0 {
+  background: #ff4d4f;
+  color: #fff;
+}
+
+.priority-tag.p1 {
+  background: #faad14;
+  color: #fff;
+}
+
+.priority-tag.p2 {
+  background: #52c41a;
+  color: #fff;
+}
+
+.priority-tag.p3 {
+  background: #d9d9d9;
+  color: #666;
+}

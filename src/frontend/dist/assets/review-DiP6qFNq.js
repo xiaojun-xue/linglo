@@ -1,0 +1,1 @@
+import{k as t}from"./index-BchLDmer.js";function u(e){return t.get("/reviews",{params:e})}function n(e){return t.post("/reviews",e)}function a(e){return t.put(`/reviews/${e}/submit`)}function v(e){return t.put(`/reviews/${e}/start`)}function w(e,r,i){return t.put(`/reviews/${e}/decide`,null,{params:{decision:r,conclusion:i}})}export{v as a,n as c,w as d,u as g,a as s};

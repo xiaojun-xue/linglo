@@ -1,0 +1,425 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.ipd:ipd-platform >------------------------
+[INFO] Building IPD-ProjectPlatform 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ ipd-platform ---
+[INFO] Copying 3 resources from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ ipd-platform ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 57 source files with javac [debug release 17] to target\classes
+[WARNING] /D:/xuexiaojun/QClawWorkspace/IPD-ProjectPlatform/src/backend/src/main/java/com/ipd/platform/dto/LoginResponse.java:[32,20] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ ipd-platform ---
+[INFO] skip non existing resourceDirectory D:\xuexiaojun\QClawWorkspace\IPD-ProjectPlatform\src\backend\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ ipd-platform ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 4 source files with javac [debug release 17] to target\test-classes
+[INFO] /D:/xuexiaojun/QClawWorkspace/IPD-ProjectPlatform/src/backend/src/test/java/com/ipd/platform/controller/RequirementControllerTest.java: D:\xuexiaojun\QClawWorkspace\IPD-ProjectPlatform\src\backend\src\test\java\com\ipd\platform\controller\RequirementControllerTest.java使用了未经检查或不安全的操作。
+[INFO] /D:/xuexiaojun/QClawWorkspace/IPD-ProjectPlatform/src/backend/src/test/java/com/ipd/platform/controller/RequirementControllerTest.java: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+[INFO] 
+[INFO] --- surefire:3.2.2:test (default-test) @ ipd-platform ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.ipd.platform.controller.AuthControllerTest
+11:48:16.587 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.ipd.platform.controller.AuthControllerTest]: AuthControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+11:48:16.726 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.ipd.platform.IpDPlatformApplication for test class com.ipd.platform.controller.AuthControllerTest
+[INFO] Running com.ipd.platform.controller.AuthControllerTest$ProtectedTests
+11:48:16.810 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.ipd.platform.controller.AuthControllerTest$ProtectedTests]: ProtectedTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+11:48:16.815 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.ipd.platform.IpDPlatformApplication for test class com.ipd.platform.controller.AuthControllerTest$ProtectedTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2026-04-12T11:48:17.108+08:00  INFO 75860 --- [linglo-platform] [           main] c.i.p.controller.AuthControllerTest      : Starting AuthControllerTest using Java 17.0.17 with PID 75860 (started by 阳阳 in D:\xuexiaojun\QClawWorkspace\IPD-ProjectPlatform\src\backend)
+2026-04-12T11:48:17.109+08:00 DEBUG 75860 --- [linglo-platform] [           main] c.i.p.controller.AuthControllerTest      : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-12T11:48:17.110+08:00  INFO 75860 --- [linglo-platform] [           main] c.i.p.controller.AuthControllerTest      : The following 1 profile is active: "test"
+2026-04-12T11:48:18.207+08:00  WARN 75860 --- [linglo-platform] [           main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.ipd.platform]' package. Please check your configuration.
+2026-04-12T11:48:19.523+08:00  WARN 75860 --- [linglo-platform] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-12T11:48:33.752+08:00  WARN 75860 --- [linglo-platform] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-12T11:48:35.036+08:00  INFO 75860 --- [linglo-platform] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@622b91dc, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6212695e, org.springframework.security.web.context.SecurityContextHolderFilter@6f800942, org.springframework.security.web.header.HeaderWriterFilter@4ba25170, org.springframework.web.filter.CorsFilter@203c5f7e, org.springframework.security.web.authentication.logout.LogoutFilter@3077921f, com.ipd.platform.security.JwtAuthenticationFilter@17caf362, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@31daef26, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1f59def1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6a5cb26f, org.springframework.security.web.session.SessionManagementFilter@534bd131, org.springframework.security.web.access.ExceptionTranslationFilter@1a9797f2, org.springframework.security.web.access.intercept.AuthorizationFilter@cd19d0a]
+ _ _   |_  _ _|_. ___ _ |    _ 
+| | |\/|_)(_| | |_\  |_)||_|_\ 
+     /               |         
+                        3.5.5 
+2026-04-12T11:48:43.023+08:00 DEBUG 75860 --- [linglo-platform] [           main] c.i.p.security.JwtAuthenticationFilter   : Filter 'jwtAuthenticationFilter' configured for use
+2026-04-12T11:48:43.057+08:00  INFO 75860 --- [linglo-platform] [           main] c.i.p.controller.AuthControllerTest      : Started AuthControllerTest in 26.208 seconds (process running for 27.074)
+2026-04-12T11:48:43.549+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建角色: 超级管理员
+2026-04-12T11:48:43.556+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建角色: 产品经理
+2026-04-12T11:48:43.564+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建角色: 项目经理
+2026-04-12T11:48:43.571+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建角色: 开发负责人
+2026-04-12T11:48:43.577+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建角色: 开发者
+2026-04-12T11:48:43.583+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建角色: 测试经理
+2026-04-12T11:48:43.590+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建角色: 测试人员
+2026-04-12T11:48:43.599+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建角色: 运维人员
+2026-04-12T11:48:43.606+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建角色: 高层管理
+2026-04-12T11:48:43.612+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建角色: 访客
+2026-04-12T11:48:43.659+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 用户管理
+2026-04-12T11:48:43.670+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 角色管理
+2026-04-12T11:48:43.677+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 权限管理
+2026-04-12T11:48:43.684+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 系统配置
+2026-04-12T11:48:43.691+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 产品列表
+2026-04-12T11:48:43.700+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 创建产品
+2026-04-12T11:48:43.706+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 编辑产品
+2026-04-12T11:48:43.716+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 删除产品
+2026-04-12T11:48:43.723+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 需求列表
+2026-04-12T11:48:43.733+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 创建需求
+2026-04-12T11:48:43.739+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 编辑需求
+2026-04-12T11:48:43.747+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 删除需求
+2026-04-12T11:48:43.753+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 分配需求
+2026-04-12T11:48:43.760+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 项目列表
+2026-04-12T11:48:43.766+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 创建项目
+2026-04-12T11:48:43.773+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 编辑项目
+2026-04-12T11:48:43.779+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 删除项目
+2026-04-12T11:48:43.786+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 查看项目
+2026-04-12T11:48:43.793+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 任务列表
+2026-04-12T11:48:43.801+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 创建任务
+2026-04-12T11:48:43.806+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 编辑任务
+2026-04-12T11:48:43.813+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 删除任务
+2026-04-12T11:48:43.819+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 分配任务
+2026-04-12T11:48:43.826+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 更新状态
+2026-04-12T11:48:43.833+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 评审列表
+2026-04-12T11:48:43.839+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 创建评审
+2026-04-12T11:48:43.850+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 编辑评审
+2026-04-12T11:48:43.859+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 评审投票
+2026-04-12T11:48:43.866+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 评审决策
+2026-04-12T11:48:43.871+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 测试列表
+2026-04-12T11:48:43.879+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 创建测试
+2026-04-12T11:48:43.886+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 编辑测试
+2026-04-12T11:48:43.895+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 执行测试
+2026-04-12T11:48:43.901+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 文档列表
+2026-04-12T11:48:43.908+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 创建文档
+2026-04-12T11:48:43.914+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 编辑文档
+2026-04-12T11:48:43.920+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 删除文档
+2026-04-12T11:48:43.928+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 查看报表
+2026-04-12T11:48:43.935+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 导出报表
+2026-04-12T11:48:44.089+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 为管理员分配所有权限
+2026-04-12T11:48:44.284+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建超级管理员: admin / admin123
+2026-04-12T11:48:44.285+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 数据初始化完成
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2026-04-12T11:48:45.441+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/register
+2026-04-12T11:48:45.456+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:45.458+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/register
+2026-04-12T11:48:45.936+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 新用户 tokentest 注册成功
+2026-04-12T11:48:46.077+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2026-04-12T11:48:46.078+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:46.088+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+2026-04-12T11:48:46.484+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-04-12T11:48:46.634+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 用户 tokentest 登录成功
+2026-04-12T11:48:46.657+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing GET /auth/current
+2026-04-12T11:48:46.740+08:00 DEBUG 75860 --- [linglo-platform] [           main] c.i.p.security.JwtAuthenticationFilter   : 用户 tokentest 认证成功
+2026-04-12T11:48:46.741+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured GET /auth/current
+2026-04-12T11:48:46.917+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing GET /auth/current
+2026-04-12T11:48:46.918+08:00 ERROR 75860 --- [linglo-platform] [           main] c.i.platform.security.JwtTokenProvider   : 无效的JWT Token: Invalid compact JWT string: Compact JWSs must contain exactly 2 period characters, and compact JWEs must contain exactly 4.  Found: 0
+2026-04-12T11:48:46.918+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:46.965+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing GET /auth/current
+2026-04-12T11:48:46.966+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 30.17 s -- in com.ipd.platform.controller.AuthControllerTest$ProtectedTests
+[INFO] Running com.ipd.platform.controller.AuthControllerTest$RegisterTests
+2026-04-12T11:48:47.094+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/register
+2026-04-12T11:48:47.099+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:47.101+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/register
+2026-04-12T11:48:47.268+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 新用户 newguy 注册成功
+2026-04-12T11:48:47.322+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/register
+2026-04-12T11:48:47.323+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:47.323+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/register
+2026-04-12T11:48:47.486+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 新用户 dupuser 注册成功
+2026-04-12T11:48:47.490+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2026-04-12T11:48:47.491+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:47.491+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+2026-04-12T11:48:47.622+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-04-12T11:48:47.627+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 用户 dupuser 登录成功
+2026-04-12T11:48:47.633+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/register
+2026-04-12T11:48:47.634+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:47.634+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/register
+2026-04-12T11:48:47.705+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/register
+2026-04-12T11:48:47.706+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:47.706+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/register
+2026-04-12T11:48:47.752+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/register
+2026-04-12T11:48:47.752+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:47.753+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/register
+2026-04-12T11:48:47.780+08:00  WARN 75860 --- [linglo-platform] [           main] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ipd.platform.dto.ApiResponse<com.ipd.platform.entity.SysUser>> com.ipd.platform.controller.AuthController.register(com.ipd.platform.dto.RegisterRequest) with 2 errors: [Field error in object 'registerRequest' on field 'username': rejected value []; codes [NotBlank.registerRequest.username,NotBlank.username,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [registerRequest.username,username]; arguments []; default message [username]]; default message [用户名不能为空]] [Field error in object 'registerRequest' on field 'username': rejected value []; codes [Size.registerRequest.username,Size.username,Size.java.lang.String,Size]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [registerRequest.username,username]; arguments []; default message [username],50,3]; default message [用户名长度在3-50个字符]] ]
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.803 s -- in com.ipd.platform.controller.AuthControllerTest$RegisterTests
+[INFO] Running com.ipd.platform.controller.AuthControllerTest$LoginTests
+2026-04-12T11:48:47.897+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/register
+2026-04-12T11:48:47.897+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:47.898+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/register
+2026-04-12T11:48:48.050+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 新用户 user_wp 注册成功
+2026-04-12T11:48:48.053+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2026-04-12T11:48:48.054+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:48.054+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+2026-04-12T11:48:48.182+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-04-12T11:48:48.184+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 用户 user_wp 登录成功
+2026-04-12T11:48:48.189+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2026-04-12T11:48:48.191+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:48.191+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+2026-04-12T11:48:48.340+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Failed to authenticate since password does not match stored value
+2026-04-12T11:48:48.387+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2026-04-12T11:48:48.388+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:48.389+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+2026-04-12T11:48:48.397+08:00  WARN 75860 --- [linglo-platform] [           main] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ipd.platform.dto.ApiResponse<com.ipd.platform.dto.LoginResponse>> com.ipd.platform.controller.AuthController.login(com.ipd.platform.dto.LoginRequest): [Field error in object 'loginRequest' on field 'username': rejected value []; codes [NotBlank.loginRequest.username,NotBlank.username,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [loginRequest.username,username]; arguments []; default message [username]]; default message [用户名不能为空]] ]
+2026-04-12T11:48:48.518+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2026-04-12T11:48:48.519+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:48.519+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+2026-04-12T11:48:48.650+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Failed to find user 'ghost'
+2026-04-12T11:48:48.693+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2026-04-12T11:48:48.694+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:48.697+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+2026-04-12T11:48:48.701+08:00  WARN 75860 --- [linglo-platform] [           main] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.ipd.platform.dto.ApiResponse<com.ipd.platform.dto.LoginResponse>> com.ipd.platform.controller.AuthController.login(com.ipd.platform.dto.LoginRequest): [Field error in object 'loginRequest' on field 'password': rejected value []; codes [NotBlank.loginRequest.password,NotBlank.password,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [loginRequest.password,password]; arguments []; default message [password]]; default message [密码不能为空]] ]
+2026-04-12T11:48:48.761+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/register
+2026-04-12T11:48:48.762+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:48.762+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/register
+2026-04-12T11:48:48.905+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 新用户 user_ok 注册成功
+2026-04-12T11:48:48.912+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2026-04-12T11:48:48.915+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:48.916+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+2026-04-12T11:48:49.050+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-04-12T11:48:49.055+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 用户 user_ok 登录成功
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.248 s -- in com.ipd.platform.controller.AuthControllerTest$LoginTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 32.63 s -- in com.ipd.platform.controller.AuthControllerTest
+[INFO] Running com.ipd.platform.controller.RequirementControllerTest
+[INFO] Running com.ipd.platform.controller.RequirementControllerTest$DeleteTests
+2026-04-12T11:48:49.285+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/register
+2026-04-12T11:48:49.286+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:49.286+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/register
+2026-04-12T11:48:49.394+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 新用户 admin 注册成功
+2026-04-12T11:48:49.412+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2026-04-12T11:48:49.414+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:49.414+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+2026-04-12T11:48:49.537+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-04-12T11:48:49.544+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 用户 admin 登录成功
+2026-04-12T11:48:49.551+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /requirements
+2026-04-12T11:48:49.559+08:00 DEBUG 75860 --- [linglo-platform] [           main] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T11:48:49.559+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /requirements
+2026-04-12T11:48:49.572+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.create(com.ipd.platform.entity.ReqRequirement); target is of class [com.ipd.platform.controller.RequirementController]
+2026-04-12T11:48:49.596+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.create(com.ipd.platform.entity.ReqRequirement); target is of class [com.ipd.platform.controller.RequirementController]
+2026-04-12T11:48:49.662+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing DELETE /requirements/1
+2026-04-12T11:48:49.671+08:00 DEBUG 75860 --- [linglo-platform] [           main] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T11:48:49.672+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured DELETE /requirements/1
+2026-04-12T11:48:49.678+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.delete(java.lang.Long); target is of class [com.ipd.platform.controller.RequirementController]
+2026-04-12T11:48:49.680+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.delete(java.lang.Long); target is of class [com.ipd.platform.controller.RequirementController]
+2026-04-12T11:48:49.705+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing GET /requirements
+2026-04-12T11:48:49.725+08:00 DEBUG 75860 --- [linglo-platform] [           main] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T11:48:49.725+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured GET /requirements
+2026-04-12T11:48:49.729+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.list(java.lang.String,java.lang.Long,java.lang.String,java.lang.Integer,int,int); target is of class [com.ipd.platform.controller.RequirementController]
+2026-04-12T11:48:49.730+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.list(java.lang.String,java.lang.Long,java.lang.String,java.lang.Integer,int,int); target is of class [com.ipd.platform.controller.RequirementController]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.740 s -- in com.ipd.platform.controller.RequirementControllerTest$DeleteTests
+[INFO] Running com.ipd.platform.controller.RequirementControllerTest$UpdateTests
+2026-04-12T11:48:49.934+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/register
+2026-04-12T11:48:49.935+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:49.935+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/register
+2026-04-12T11:48:50.070+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 新用户 admin 注册成功
+2026-04-12T11:48:50.084+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2026-04-12T11:48:50.085+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:50.086+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+2026-04-12T11:48:50.201+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-04-12T11:48:50.210+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 用户 admin 登录成功
+2026-04-12T11:48:50.214+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing PUT /requirements/99999
+2026-04-12T11:48:50.221+08:00 DEBUG 75860 --- [linglo-platform] [           main] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T11:48:50.222+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured PUT /requirements/99999
+2026-04-12T11:48:50.224+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.update(java.lang.Long,com.ipd.platform.entity.ReqRequirement); target is of class [com.ipd.platform.controller.RequirementController]
+2026-04-12T11:48:50.226+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.update(java.lang.Long,com.ipd.platform.entity.ReqRequirement); target is of class [com.ipd.platform.controller.RequirementController]
+2026-04-12T11:48:50.258+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/register
+2026-04-12T11:48:50.260+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:50.260+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/register
+2026-04-12T11:48:50.391+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 新用户 admin 注册成功
+2026-04-12T11:48:50.417+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2026-04-12T11:48:50.418+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:50.418+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+2026-04-12T11:48:50.550+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-04-12T11:48:50.557+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 用户 admin 登录成功
+2026-04-12T11:48:50.562+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /requirements
+2026-04-12T11:48:50.569+08:00 DEBUG 75860 --- [linglo-platform] [           main] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T11:48:50.569+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /requirements
+2026-04-12T11:48:50.571+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.create(com.ipd.platform.entity.ReqRequirement); target is of class [com.ipd.platform.controller.RequirementController]
+2026-04-12T11:48:50.572+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.create(com.ipd.platform.entity.ReqRequirement); target is of class [com.ipd.platform.controller.RequirementController]
+2026-04-12T11:48:50.583+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing PUT /requirements/2
+2026-04-12T11:48:50.591+08:00 DEBUG 75860 --- [linglo-platform] [           main] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T11:48:50.592+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured PUT /requirements/2
+2026-04-12T11:48:50.597+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.update(java.lang.Long,com.ipd.platform.entity.ReqRequirement); target is of class [com.ipd.platform.controller.RequirementController]
+2026-04-12T11:48:50.598+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.update(java.lang.Long,com.ipd.platform.entity.ReqRequirement); target is of class [com.ipd.platform.controller.RequirementController]
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.766 s -- in com.ipd.platform.controller.RequirementControllerTest$UpdateTests
+[INFO] Running com.ipd.platform.controller.RequirementControllerTest$ListTests
+2026-04-12T11:48:50.662+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/register
+2026-04-12T11:48:50.663+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:50.663+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/register
+2026-04-12T11:48:50.801+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 新用户 admin 注册成功
+2026-04-12T11:48:50.820+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2026-04-12T11:48:50.821+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:50.821+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+2026-04-12T11:48:50.948+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-04-12T11:48:50.954+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 用户 admin 登录成功
+2026-04-12T11:48:50.960+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /requirements
+2026-04-12T11:48:50.966+08:00 DEBUG 75860 --- [linglo-platform] [           main] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T11:48:50.967+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /requirements
+2026-04-12T11:48:50.969+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.create(com.ipd.platform.entity.ReqRequirement); target is of class [com.ipd.platform.controller.RequirementController]
+2026-04-12T11:48:50.969+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.create(com.ipd.platform.entity.ReqRequirement); target is of class [com.ipd.platform.controller.RequirementController]
+2026-04-12T11:48:50.979+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /requirements
+2026-04-12T11:48:50.986+08:00 DEBUG 75860 --- [linglo-platform] [           main] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T11:48:50.986+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /requirements
+2026-04-12T11:48:50.987+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.create(com.ipd.platform.entity.ReqRequirement); target is of class [com.ipd.platform.controller.RequirementController]
+2026-04-12T11:48:50.987+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.create(com.ipd.platform.entity.ReqRequirement); target is of class [com.ipd.platform.controller.RequirementController]
+2026-04-12T11:48:50.996+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /requirements
+2026-04-12T11:48:51.001+08:00 DEBUG 75860 --- [linglo-platform] [           main] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T11:48:51.002+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /requirements
+2026-04-12T11:48:51.003+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.create(com.ipd.platform.entity.ReqRequirement); target is of class [com.ipd.platform.controller.RequirementController]
+2026-04-12T11:48:51.004+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.create(com.ipd.platform.entity.ReqRequirement); target is of class [com.ipd.platform.controller.RequirementController]
+2026-04-12T11:48:51.012+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing GET /requirements
+2026-04-12T11:48:51.017+08:00 DEBUG 75860 --- [linglo-platform] [           main] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T11:48:51.018+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured GET /requirements
+2026-04-12T11:48:51.019+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.list(java.lang.String,java.lang.Long,java.lang.String,java.lang.Integer,int,int); target is of class [com.ipd.platform.controller.RequirementController]
+2026-04-12T11:48:51.020+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.list(java.lang.String,java.lang.Long,java.lang.String,java.lang.Integer,int,int); target is of class [com.ipd.platform.controller.RequirementController]
+2026-04-12T11:48:51.063+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/register
+2026-04-12T11:48:51.063+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:51.063+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/register
+2026-04-12T11:48:51.193+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 新用户 admin 注册成功
+2026-04-12T11:48:51.204+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2026-04-12T11:48:51.204+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:51.204+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+2026-04-12T11:48:51.299+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-04-12T11:48:51.303+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 用户 admin 登录成功
+2026-04-12T11:48:51.306+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /requirements
+2026-04-12T11:48:51.312+08:00 DEBUG 75860 --- [linglo-platform] [           main] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T11:48:51.312+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /requirements
+2026-04-12T11:48:51.314+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.create(com.ipd.platform.entity.ReqRequirement); target is of class [com.ipd.platform.controller.RequirementController]
+2026-04-12T11:48:51.314+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.create(com.ipd.platform.entity.ReqRequirement); target is of class [com.ipd.platform.controller.RequirementController]
+2026-04-12T11:48:51.320+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing GET /requirements?priority=0
+2026-04-12T11:48:51.326+08:00 DEBUG 75860 --- [linglo-platform] [           main] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T11:48:51.326+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured GET /requirements?priority=0
+2026-04-12T11:48:51.328+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.list(java.lang.String,java.lang.Long,java.lang.String,java.lang.Integer,int,int); target is of class [com.ipd.platform.controller.RequirementController]
+2026-04-12T11:48:51.328+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.list(java.lang.String,java.lang.Long,java.lang.String,java.lang.Integer,int,int); target is of class [com.ipd.platform.controller.RequirementController]
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.718 s -- in com.ipd.platform.controller.RequirementControllerTest$ListTests
+[INFO] Running com.ipd.platform.controller.RequirementControllerTest$CreateTests
+2026-04-12T11:48:51.378+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/register
+2026-04-12T11:48:51.378+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:51.378+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/register
+2026-04-12T11:48:51.505+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 新用户 admin 注册成功
+2026-04-12T11:48:51.516+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2026-04-12T11:48:51.516+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:51.516+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+2026-04-12T11:48:51.637+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-04-12T11:48:51.644+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 用户 admin 登录成功
+2026-04-12T11:48:51.647+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /requirements
+2026-04-12T11:48:51.647+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:51.671+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/register
+2026-04-12T11:48:51.671+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:51.671+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/register
+2026-04-12T11:48:51.781+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 新用户 admin 注册成功
+2026-04-12T11:48:51.793+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /auth/login
+2026-04-12T11:48:51.794+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-04-12T11:48:51.794+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /auth/login
+2026-04-12T11:48:51.904+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-04-12T11:48:51.907+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 用户 admin 登录成功
+2026-04-12T11:48:51.911+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Securing POST /requirements
+2026-04-12T11:48:51.917+08:00 DEBUG 75860 --- [linglo-platform] [           main] c.i.p.security.JwtAuthenticationFilter   : 用户 admin 认证成功
+2026-04-12T11:48:51.917+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.security.web.FilterChainProxy        : Secured POST /requirements
+2026-04-12T11:48:51.918+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorizing method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.create(com.ipd.platform.entity.ReqRequirement); target is of class [com.ipd.platform.controller.RequirementController]
+2026-04-12T11:48:51.919+08:00 DEBUG 75860 --- [linglo-platform] [           main] horizationManagerBeforeMethodInterceptor : Authorized method invocation ReflectiveMethodInvocation: public org.springframework.http.ResponseEntity com.ipd.platform.controller.RequirementController.create(com.ipd.platform.entity.ReqRequirement); target is of class [com.ipd.platform.controller.RequirementController]
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.584 s -- in com.ipd.platform.controller.RequirementControllerTest$CreateTests
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.846 s -- in com.ipd.platform.controller.RequirementControllerTest
+[INFO] Running com.ipd.platform.IpDPlatformApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2026-04-12T11:48:52.458+08:00  INFO 75860 --- [linglo-platform] [           main] c.i.p.IpDPlatformApplicationTests        : Starting IpDPlatformApplicationTests using Java 17.0.17 with PID 75860 (started by 阳阳 in D:\xuexiaojun\QClawWorkspace\IPD-ProjectPlatform\src\backend)
+2026-04-12T11:48:52.459+08:00 DEBUG 75860 --- [linglo-platform] [           main] c.i.p.IpDPlatformApplicationTests        : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-04-12T11:48:52.459+08:00  INFO 75860 --- [linglo-platform] [           main] c.i.p.IpDPlatformApplicationTests        : The following 1 profile is active: "test"
+2026-04-12T11:48:54.728+08:00  WARN 75860 --- [linglo-platform] [           main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.ipd.platform]' package. Please check your configuration.
+2026-04-12T11:48:55.825+08:00  WARN 75860 --- [linglo-platform] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-12T11:48:59.202+08:00  WARN 75860 --- [linglo-platform] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-12T11:48:59.394+08:00  INFO 75860 --- [linglo-platform] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1b4f57d6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3af41750, org.springframework.security.web.context.SecurityContextHolderFilter@b3a49aa, org.springframework.security.web.header.HeaderWriterFilter@44a14a6, org.springframework.web.filter.CorsFilter@2e6c92ef, org.springframework.security.web.authentication.logout.LogoutFilter@1ad779a6, com.ipd.platform.security.JwtAuthenticationFilter@4e80e1b5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7c31a506, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@288a7102, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@a4d4219, org.springframework.security.web.session.SessionManagementFilter@4a84239a, org.springframework.security.web.access.ExceptionTranslationFilter@61f2c1da, org.springframework.security.web.access.intercept.AuthorizationFilter@1046987b]
+ _ _   |_  _ _|_. ___ _ |    _ 
+| | |\/|_)(_| | |_\  |_)||_|_\ 
+     /               |         
+                        3.5.5 
+2026-04-12T11:49:00.256+08:00  INFO 75860 --- [linglo-platform] [           main] c.i.p.IpDPlatformApplicationTests        : Started IpDPlatformApplicationTests in 8.281 seconds (process running for 44.273)
+2026-04-12T11:49:00.617+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建角色: 超级管理员
+2026-04-12T11:49:00.662+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建角色: 产品经理
+2026-04-12T11:49:00.705+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建角色: 项目经理
+2026-04-12T11:49:00.711+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建角色: 开发负责人
+2026-04-12T11:49:00.717+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建角色: 开发者
+2026-04-12T11:49:00.722+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建角色: 测试经理
+2026-04-12T11:49:00.730+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建角色: 测试人员
+2026-04-12T11:49:00.757+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建角色: 运维人员
+2026-04-12T11:49:00.763+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建角色: 高层管理
+2026-04-12T11:49:00.771+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建角色: 访客
+2026-04-12T11:49:00.797+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 用户管理
+2026-04-12T11:49:00.802+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 角色管理
+2026-04-12T11:49:00.809+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 权限管理
+2026-04-12T11:49:00.822+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 系统配置
+2026-04-12T11:49:00.829+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 产品列表
+2026-04-12T11:49:00.833+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 创建产品
+2026-04-12T11:49:00.837+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 编辑产品
+2026-04-12T11:49:00.840+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 删除产品
+2026-04-12T11:49:00.845+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 需求列表
+2026-04-12T11:49:00.848+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 创建需求
+2026-04-12T11:49:00.854+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 编辑需求
+2026-04-12T11:49:00.860+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 删除需求
+2026-04-12T11:49:00.863+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 分配需求
+2026-04-12T11:49:00.868+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 项目列表
+2026-04-12T11:49:00.874+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 创建项目
+2026-04-12T11:49:00.886+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 编辑项目
+2026-04-12T11:49:00.896+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 删除项目
+2026-04-12T11:49:00.900+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 查看项目
+2026-04-12T11:49:00.905+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 任务列表
+2026-04-12T11:49:00.909+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 创建任务
+2026-04-12T11:49:00.915+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 编辑任务
+2026-04-12T11:49:00.922+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 删除任务
+2026-04-12T11:49:00.928+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 分配任务
+2026-04-12T11:49:00.932+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 更新状态
+2026-04-12T11:49:00.937+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 评审列表
+2026-04-12T11:49:00.941+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 创建评审
+2026-04-12T11:49:00.948+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 编辑评审
+2026-04-12T11:49:00.952+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 评审投票
+2026-04-12T11:49:00.955+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 评审决策
+2026-04-12T11:49:00.960+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 测试列表
+2026-04-12T11:49:00.968+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 创建测试
+2026-04-12T11:49:00.982+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 编辑测试
+2026-04-12T11:49:00.988+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 执行测试
+2026-04-12T11:49:00.993+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 文档列表
+2026-04-12T11:49:01.000+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 创建文档
+2026-04-12T11:49:01.004+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 编辑文档
+2026-04-12T11:49:01.021+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 删除文档
+2026-04-12T11:49:01.027+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 查看报表
+2026-04-12T11:49:01.033+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建权限: 导出报表
+2026-04-12T11:49:01.111+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 为管理员分配所有权限
+2026-04-12T11:49:01.284+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 创建超级管理员: admin / admin123
+2026-04-12T11:49:01.284+08:00  INFO 75860 --- [linglo-platform] [           main] c.ipd.platform.config.DataInitializer    : 数据初始化完成
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.368 s -- in com.ipd.platform.IpDPlatformApplicationTests
+[INFO] Running com.ipd.platform.service.AuthServiceTest
+2026-04-12T11:49:01.729+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Failed to authenticate since password does not match stored value
+2026-04-12T11:49:01.980+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-04-12T11:49:01.984+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 用户 testuser 登录成功
+2026-04-12T11:49:02.318+08:00 DEBUG 75860 --- [linglo-platform] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-04-12T11:49:02.321+08:00  INFO 75860 --- [linglo-platform] [           main] com.ipd.platform.service.AuthService     : 用户 testuser 登录成功
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.026 s -- in com.ipd.platform.service.AuthServiceTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:12 min
+[INFO] Finished at: 2026-04-12T11:49:02+08:00
+[INFO] ------------------------------------------------------------------------
