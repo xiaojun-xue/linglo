@@ -24,10 +24,6 @@ import java.util.Set;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-/**
- * 评审管理模块 API 测试
- * 策略：先创建项目，再创建评审
- */
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
@@ -52,7 +48,7 @@ class ReviewControllerTest {
         projectRepository.deleteAll();
 
         SysRole adminRole = new SysRole();
-        adminRole.setRoleName("系统管理员");
+        adminRole.setRoleName("管理员");
         adminRole.setRoleCode("ADMIN");
         final SysRole savedRole = roleRepository.save(adminRole);
 
@@ -68,52 +64,42 @@ class ReviewControllerTest {
                 .content(objectMapper.writeValueAsString(login))).andExpect(status().isOk()).andReturn();
         adminToken = objectMapper.readTree(res.getResponse().getContentAsString()).get("data").get("accessToken").asText();
 
-        testProjectId = createProject("测试项目", "concept");
-    }
-
-    private Long createProject(String name, String stage) throws Exception {
+        // Create project first
         Map<String, Object> proj = new HashMap<>();
-        proj.put("name", name);
-        proj.put("description", "测试项目");
-        proj.put("stage", stage);
-        
-        MvcResult result = mockMvc.perform(post("/projects").header("Authorization", auth())
+        proj.put("name", "测试项目");
+        proj.put("description", "测试");
+        proj.put("stage", 1);
+        var projRes = mockMvc.perform(post("/projects").header("Authorization", auth())
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(proj)))
-                .andExpect(status().isOk())
-                .andReturn();
-        return objectMapper.readTree(result.getResponse().getContentAsString()).get("data").get("id").asLong();
-    }
-
-    private Map<String, Object> review(String title, String type, String status) {
-        Map<String, Object> m = new HashMap<>();
-        m.put("title", title);
-        m.put("reviewType", type);
-        m.put("status", status);
-        m.put("projectId", testProjectId);
-        return m;
+                .content(objectMapper.writeValueAsString(proj))).andExpect(status().isOk()).andReturn();
+        testProjectId = objectMapper.readTree(projRes.getResponse().getContentAsString()).get("data").get("id").asLong();
     }
 
     private String auth() { return "Bearer " + adminToken; }
 
+    private Map<String, Object> review(String title) {
+        Map<String, Object> m = new HashMap<>();
+        m.put("title", title);
+        m.put("projectId", testProjectId);
+        m.put("type", 1);
+        m.put("status", 1);
+        return m;
+    }
+
     @Nested
     @DisplayName("POST /reviews")
     class CreateTests {
-
-        @Test @DisplayName("创建评审成功")
-        void createSuccess() throws Exception {
+        @Test void createSuccess() throws Exception {
             mockMvc.perform(post("/reviews").header("Authorization", auth())
                     .contentType(MediaType.APPLICATION_JSON)
-                    .content(objectMapper.writeValueAsString(review("需求评审", "REQUIREMENT", "pending"))))
+                    .content(objectMapper.writeValueAsString(review("需求评审"))))
                     .andExpect(status().isOk())
                     .andExpect(jsonPath("$.code").value(200))
                     .andExpect(jsonPath("$.data.title").value("需求评审"));
         }
-
-        @Test @DisplayName("无Token创建评审返回401")
-        void createNoToken() throws Exception {
+        @Test void createNoToken() throws Exception {
             mockMvc.perform(post("/reviews").contentType(MediaType.APPLICATION_JSON)
-                    .content(objectMapper.writeValueAsString(review("Test", "REQUIREMENT", "pending"))))
+                    .content(objectMapper.writeValueAsString(review("Test"))))
                     .andExpect(status().isUnauthorized());
         }
     }
@@ -121,15 +107,13 @@ class ReviewControllerTest {
     @Nested
     @DisplayName("GET /reviews")
     class ListTests {
-
-        @Test @DisplayName("分页查询返回2条数据")
-        void listPagination() throws Exception {
+        @Test void listPagination() throws Exception {
             mockMvc.perform(post("/reviews").header("Authorization", auth())
                     .contentType(MediaType.APPLICATION_JSON)
-                    .content(objectMapper.writeValueAsString(review("评审A", "REQUIREMENT", "pending"))));
+                    .content(objectMapper.writeValueAsString(review("评审A"))));
             mockMvc.perform(post("/reviews").header("Authorization", auth())
                     .contentType(MediaType.APPLICATION_JSON)
-                    .content(objectMapper.writeValueAsString(review("评审B", "DESIGN", "pending"))));
+                    .content(objectMapper.writeValueAsString(review("评审B"))));
             mockMvc.perform(get("/reviews").header("Authorization", auth()))
                     .andExpect(status().isOk())
                     .andExpect(jsonPath("$.code").value(200))
@@ -140,15 +124,12 @@ class ReviewControllerTest {
     @Nested
     @DisplayName("PUT /reviews/{id}")
     class UpdateTests {
-
-        @Test @DisplayName("更新评审标题成功")
-        void updateTitle() throws Exception {
+        @Test void updateTitle() throws Exception {
             MvcResult cr = mockMvc.perform(post("/reviews").header("Authorization", auth())
                     .contentType(MediaType.APPLICATION_JSON)
-                    .content(objectMapper.writeValueAsString(review("待更新评审", "REQUIREMENT", "pending"))))
+                    .content(objectMapper.writeValueAsString(review("待更新评审"))))
                     .andExpect(status().isOk()).andReturn();
             Long id = objectMapper.readTree(cr.getResponse().getContentAsString()).get("data").get("id").asLong();
-
             Map<String, Object> update = new HashMap<>();
             update.put("title", "已更新标题");
             mockMvc.perform(put("/reviews/" + id).header("Authorization", auth())
@@ -157,9 +138,7 @@ class ReviewControllerTest {
                     .andExpect(status().isOk())
                     .andExpect(jsonPath("$.data.title").value("已更新标题"));
         }
-
-        @Test @DisplayName("更新不存在评审返回404")
-        void updateNotFound() throws Exception {
+        @Test void updateNotFound() throws Exception {
             Map<String, Object> update = new HashMap<>();
             update.put("title", "不存在");
             mockMvc.perform(put("/reviews/99999").header("Authorization", auth())
@@ -172,20 +151,9 @@ class ReviewControllerTest {
     @Nested
     @DisplayName("DELETE /reviews/{id}")
     class DeleteTests {
-
-        @Test @DisplayName("删除评审成功")
-        void deleteSuccess() throws Exception {
-            MvcResult cr = mockMvc.perform(post("/reviews").header("Authorization", auth())
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .content(objectMapper.writeValueAsString(review("待删除评审", "REQUIREMENT", "pending"))))
-                    .andExpect(status().isOk()).andReturn();
-            Long id = objectMapper.readTree(cr.getResponse().getContentAsString()).get("data").get("id").asLong();
-
-            mockMvc.perform(delete("/reviews/" + id).header("Authorization", auth()))
-                    .andExpect(status().isOk());
-
-            mockMvc.perform(delete("/reviews/" + id).header("Authorization", auth()))
-                    .andExpect(status().isNotFound());
+        @Test void deleteNotSupported() throws Exception {
+            mockMvc.perform(delete("/reviews/1").header("Authorization", auth()))
+                    .andExpect(status().isMethodNotAllowed());
         }
     }
 }

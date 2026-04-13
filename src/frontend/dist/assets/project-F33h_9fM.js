@@ -1,1 +1,0 @@
-import{k as e}from"./index-BchLDmer.js";function c(t){return e.get("/projects",{params:t})}function n(t){return e.post("/projects",t)}function s(t,r){return e.put(`/projects/${t}`,r)}function u(t){return e.delete(`/projects/${t}`)}export{n as c,u as d,c as g,s as u};

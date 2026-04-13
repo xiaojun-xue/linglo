@@ -9,9 +9,7 @@ com\ipd\platform\controller\ReviewControllerTest$CreateTests.class
 com\ipd\platform\controller\SprintControllerTest$ListTests.class
 com\ipd\platform\controller\SprintControllerTest.class
 com\ipd\platform\controller\ProjectControllerTest.class
-com\ipd\platform\controller\QaControllerTest$TestCaseTests.class
 com\ipd\platform\controller\AuthControllerTest$ProtectedTests.class
-com\ipd\platform\controller\SprintControllerTest$DeleteTests.class
 com\ipd\platform\controller\AuthControllerTest$LoginTests.class
 com\ipd\platform\controller\RequirementControllerTest$UpdateTests.class
 com\ipd\platform\controller\ProjectControllerTest$CreateTests.class
@@ -24,6 +22,7 @@ com\ipd\platform\controller\TaskControllerTest$CreateTests.class
 com\ipd\platform\controller\NotificationControllerTest$MarkAllReadTests.class
 com\ipd\platform\controller\ReviewControllerTest$UpdateTests.class
 com\ipd\platform\controller\SprintControllerTest$CreateTests.class
+com\ipd\platform\controller\QaControllerTest$CreateTestCaseTests.class
 com\ipd\platform\controller\NotificationControllerTest.class
 com\ipd\platform\controller\QaControllerTest$StatsTests.class
 com\ipd\platform\controller\NotificationControllerTest$MarkReadTests.class

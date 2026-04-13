@@ -1,0 +1,221 @@
+/* =========================================
+   Element Plus 主题覆盖
+   玲珑品牌色系
+   ========================================= */
+
+/* 覆盖 Element Plus 主题色 */
+:root {
+  --el-color-primary: #1a365d;
+  --el-color-primary-light-3: #2c5282;
+  --el-color-primary-light-5: #3d6a9f;
+  --el-color-primary-light-7: #5a86bc;
+  --el-color-primary-light-8: #6d9bcf;
+  --el-color-primary-light-9: #8fb2e2;
+  --el-color-primary-dark-2: #0f2744;
+  
+  --el-color-success: #059669;
+  --el-color-warning: #d97706;
+  --el-color-danger: #dc2626;
+  --el-color-info: #0891b2;
+  
+  --el-border-radius-base: 8px;
+  --el-border-radius-small: 6px;
+  --el-border-radius-round: 20px;
+  
+  --el-font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* =========================================
+   Vue 页面过渡动画
+   ========================================= */
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+/* =========================================
+   Element Plus 组件样式优化
+   ========================================= */
+
+/* 按钮 */
+.el-button {
+  border-radius: 8px !important;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.el-button--primary {
+  background: linear-gradient(135deg, var(--el-color-primary), var(--el-color-primary-light-3)) !important;
+  border-color: transparent !important;
+}
+
+.el-button--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(26, 54, 93, 0.3) !important;
+}
+
+/* 输入框 */
+.el-input__wrapper {
+  border-radius: 8px !important;
+  box-shadow: 0 0 0 1px var(--el-border-color) inset !important;
+  transition: all 0.2s ease !important;
+}
+
+.el-input__wrapper:hover {
+  box-shadow: 0 0 0 1px var(--el-color-primary-light-3) inset !important;
+}
+
+.el-input__wrapper.is-focus {
+  box-shadow: 0 0 0 2px rgba(26, 54, 93, 0.2) inset !important;
+}
+
+/* 选择器 */
+.el-select__wrapper {
+  border-radius: 8px !important;
+}
+
+/* 对话框 */
+.el-dialog {
+  border-radius: 16px !important;
+  overflow: hidden;
+}
+
+.el-dialog__header {
+  padding: 20px 24px 16px !important;
+  border-bottom: 1px solid var(--el-border-color-lighter);
+}
+
+.el-dialog__body {
+  padding: 24px !important;
+}
+
+.el-dialog__footer {
+  padding: 16px 24px 20px !important;
+  border-top: 1px solid var(--el-border-color-lighter);
+}
+
+/* 表格 */
+.el-table {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.el-table th.el-table__cell {
+  background-color: #f8fafc !important;
+  font-weight: 600;
+  font-size: 13px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.el-table td.el-table__cell {
+  padding: 14px 0 !important;
+}
+
+.el-table__row:hover > td.el-table__cell {
+  background-color: rgba(26, 54, 93, 0.02) !important;
+}
+
+/* 分页 */
+.el-pagination {
+  justify-content: flex-end;
+}
+
+.el-pagination button,
+.el-pager li {
+  border-radius: 8px !important;
+}
+
+.el-pager li.is-active {
+  background: var(--el-color-primary) !important;
+}
+
+/* 下拉菜单 */
+.el-dropdown-menu {
+  border-radius: 12px !important;
+  padding: 8px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+.el-dropdown-menu__item {
+  border-radius: 6px !important;
+  padding: 10px 16px !important;
+}
+
+/* 消息提示 */
+.el-message {
+  border-radius: 12px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* 标签 */
+.el-tag {
+  border-radius: 6px !important;
+}
+
+/* 卡片 */
+.el-card {
+  border-radius: 12px !important;
+  border: 1px solid var(--el-border-color-lighter);
+}
+
+/* 标签页 */
+.el-tabs__item {
+  font-weight: 500;
+}
+
+.el-tabs__item.is-active {
+  color: var(--el-color-primary) !important;
+}
+
+.el-tabs__active-bar {
+  background-color: var(--el-color-primary) !important;
+}
+
+/* 空状态 */
+.el-empty__description {
+  color: #94a3b8;
+}
+
+/* 加载 */
+.el-loading-mask {
+  background-color: rgba(248, 250, 252, 0.9) !important;
+}
+
+.el-loading-spinner .el-loading-text {
+  color: var(--el-color-primary);
+}
+
+/* 表单项 */
+.el-form-item__label {
+  font-weight: 500;
+  color: #475569;
+}
+
+/* 复选框 */
+.el-checkbox__input.is-checked .el-checkbox__inner {
+  background-color: var(--el-color-primary) !important;
+  border-color: var(--el-color-primary) !important;
+}
+
+/* 徽章 */
+.el-badge__content {
+  background-color: var(--el-color-danger) !important;
+}
+
+/* 分割线 */
+.el-divider {
+  border-color: var(--el-border-color-lighter);
+}
