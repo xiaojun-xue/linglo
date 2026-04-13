@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.ipd.platform.controller.AuthControllerTest
 -------------------------------------------------------------------------------
-Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.40 s -- in com.ipd.platform.controller.AuthControllerTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.052 s -- in com.ipd.platform.controller.AuthControllerTest

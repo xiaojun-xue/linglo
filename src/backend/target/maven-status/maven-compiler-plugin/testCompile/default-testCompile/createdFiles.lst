@@ -17,6 +17,7 @@ com\ipd\platform\controller\ProjectControllerTest$ListTests.class
 com\ipd\platform\controller\ProjectControllerTest$UpdateTests.class
 com\ipd\platform\controller\QaControllerTest$BugTests.class
 com\ipd\platform\controller\RequirementControllerTest$CreateTests.class
+com\ipd\platform\concurrent\ConcurrentWorkloadTest.class
 com\ipd\platform\controller\TaskControllerTest$DeleteTests.class
 com\ipd\platform\controller\TaskControllerTest$CreateTests.class
 com\ipd\platform\controller\NotificationControllerTest$MarkAllReadTests.class

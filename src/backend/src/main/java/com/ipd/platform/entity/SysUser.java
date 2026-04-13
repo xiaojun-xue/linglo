@@ -106,6 +106,9 @@ public class SysUser extends BaseEntity {
     /**
      * 是否超级管理员
      */
+    /**
+     * 是否超级管理员
+     */
     @Transient
     public boolean isAdmin() {
         return this.userType != null && this.userType == 1;
@@ -118,4 +121,10 @@ public class SysUser extends BaseEntity {
     public boolean isDisabled() {
         return this.status == null || this.status == 0;
     }
+
+    /**
+     * 角色代码列表（用于接收前端参数，非数据库字段）
+     */
+    @Transient
+    private Set<String> roleCodes;
 }

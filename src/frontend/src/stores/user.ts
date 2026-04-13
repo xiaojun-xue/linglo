@@ -34,13 +34,16 @@ export const useUserStore = defineStore('user', () => {
     }
   }
 
-  function logout() {
+  function logoutAction() {
     token.value = ''
     userInfo.value = null
     roles.value = []
     localStorage.removeItem('token')
     localStorage.removeItem('refreshToken')
   }
+
+  // 兼容别名
+  const logout = logoutAction
 
   function hasRole(role: string) {
     return roles.value.includes(role)

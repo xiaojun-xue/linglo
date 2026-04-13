@@ -81,6 +81,18 @@
           <template #title>文档管理</template>
         </el-menu-item>
 
+        <!-- 系统管理分组（仅管理员可见） -->
+        <el-sub-menu v-if="isAdmin" index="/system" class="admin-menu-group">
+          <template #title>
+            <el-icon><Setting /></el-icon>
+            <span>系统管理</span>
+          </template>
+          <el-menu-item index="/users">
+            <el-icon><UserFilled /></el-icon>
+            <template #title>用户管理</template>
+          </el-menu-item>
+        </el-sub-menu>
+
         <el-divider class="menu-divider" />
       </el-menu>
 
@@ -94,7 +106,7 @@
             <transition name="fade-slide">
               <div v-if="!isCollapse" class="user-detail">
                 <span class="user-name">{{ userStore.userInfo?.nickname || '管理员' }}</span>
-                <span class="user-role">系统管理员</span>
+                <span class="user-role">{{ isAdmin ? '管理员' : userRoleLabel }}</span>
               </div>
             </transition>
             <transition name="fade-slide">
@@ -148,7 +160,7 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 import { useUserStore } from '@/stores/user'
 import {
   HomeFilled, Document, FolderOpened, List, Grid, Guide, Finished, Reading,
-  User, Bell, Fold, Expand, ArrowDown, SwitchButton
+  User, Bell, Fold, Expand, ArrowDown, SwitchButton, Setting, UserFilled
 } from '@element-plus/icons-vue'
 
 const router = useRouter()
@@ -169,10 +181,37 @@ const pageTitleMap: Record<string, string> = {
   '/reviews': '评审管理',
   '/qa': '测试管理',
   '/documents': '文档管理',
-  '/profile': '个人设置'
+  '/profile': '个人设置',
+  '/users': '用户管理'
 }
 
 const pageTitle = computed(() => pageTitleMap[currentRoute.value] || '玲珑')
+
+const isAdmin = computed(() => {
+  const roles = userStore.userInfo?.roles || []
+  return roles.some((r: any) => r.roleCode === 'ADMIN' || r === 'ADMIN' || r === 'ROLE_ADMIN')
+})
+
+const roleNameMap: Record<string, string> = {
+  ADMIN: '管理员',
+  PRODUCT_MANAGER: '产品经理',
+  PROJECT_MANAGER: '项目经理',
+  TECH_LEAD: '技术负责人',
+  DEVELOPER: '开发者',
+  QA_MANAGER: '测试经理',
+  QA: '测试人员',
+  OPS: '运维人员',
+  EXECUTIVE: '高层管理',
+  VIEWER: '访客'
+}
+
+const userRoleLabel = computed(() => {
+  const roles = userStore.userInfo?.roles || []
+  if (!roles.length) return '普通用户'
+  const firstRole = roles[0]
+  const code = firstRole.roleCode || firstRole
+  return roleNameMap[code] || String(code)
+})
 
 function toggleCollapse() {
   isCollapse.value = !isCollapse.value
@@ -353,6 +392,17 @@ onMounted(() => {
 .menu-divider {
   border-color: rgba(255, 255, 255, 0.08) !important;
   margin: 16px 12px !important;
+}
+
+/* 管理员菜单组 */
+.admin-menu-group :deep(.el-sub-menu__title) {
+  color: rgba(214, 158, 46, 0.9) !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.admin-menu-group :deep(.el-sub-menu__title .el-icon) {
+  color: #d69e2e !important;
 }
 
 /* 用户信息 */

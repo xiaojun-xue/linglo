@@ -76,6 +76,7 @@ com\ipd\platform\entity\SysNotification$SysNotificationBuilder.class
 com\ipd\platform\dto\ApiResponse.class
 com\ipd\platform\entity\SysRole$RoleCode.class
 com\ipd\platform\entity\QaBug$Severity.class
+com\ipd\platform\controller\RoleController.class
 com\ipd\platform\entity\PrjProject$Stage.class
 com\ipd\platform\service\SprintService.class
 com\ipd\platform\controller\TaskController.class

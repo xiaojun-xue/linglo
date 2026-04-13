@@ -1,11 +1,12 @@
 package com.ipd.platform.controller;
 
 import com.ipd.platform.dto.ApiResponse;
+import com.ipd.platform.entity.SysRole;
 import com.ipd.platform.entity.SysUser;
+import com.ipd.platform.repository.SysRoleRepository;
 import com.ipd.platform.repository.SysUserRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -16,7 +17,10 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -30,6 +34,7 @@ import java.util.stream.Collectors;
 public class UserController {
 
     private final SysUserRepository userRepository;
+    private final SysRoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Operation(summary = "获取用户列表")
@@ -39,10 +44,8 @@ public class UserController {
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "20") int size,
             @RequestParam(required = false) String keyword) {
-        
         PageRequest pageRequest = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "createdAt"));
         Page<SysUser> users = userRepository.findAll(pageRequest);
-        
         return ResponseEntity.ok(ApiResponse.success(users));
     }
 
@@ -63,6 +66,14 @@ public class UserController {
             return ResponseEntity.badRequest().body(ApiResponse.badRequest("用户名已存在"));
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        // 分配角色
+        if (user.getRoles() != null && !user.getRoles().isEmpty()) {
+            Set<SysRole> roles = new HashSet<>();
+            for (SysRole role : user.getRoles()) {
+                roleRepository.findByRoleCode(role.getRoleCode()).ifPresent(roles::add);
+            }
+            user.setRoles(roles);
+        }
         SysUser saved = userRepository.save(user);
         return ResponseEntity.ok(ApiResponse.success("创建成功", saved));
     }
@@ -71,16 +82,26 @@ public class UserController {
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ApiResponse<SysUser>> update(@PathVariable Long id, @RequestBody SysUser user) {
-        return userRepository.findById(id)
-                .map(existing -> {
-                    if (user.getNickname() != null) existing.setNickname(user.getNickname());
-                    if (user.getEmail() != null) existing.setEmail(user.getEmail());
-                    if (user.getPhone() != null) existing.setPhone(user.getPhone());
-                    if (user.getStatus() != null) existing.setStatus(user.getStatus());
-                    SysUser saved = userRepository.save(existing);
-                    return ResponseEntity.ok(ApiResponse.success("更新成功", saved));
-                })
-                .orElse(ResponseEntity.status(404).body(ApiResponse.notFound("用户不存在")));
+        Optional<SysUser> opt = userRepository.findById(id);
+        if (opt.isEmpty()) {
+            return ResponseEntity.status(404).body(ApiResponse.notFound("用户不存在"));
+        }
+        SysUser existing = opt.get();
+        if (user.getNickname() != null) existing.setNickname(user.getNickname());
+        if (user.getEmail() != null) existing.setEmail(user.getEmail());
+        if (user.getPhone() != null) existing.setPhone(user.getPhone());
+        if (user.getStatus() != null) existing.setStatus(user.getStatus());
+        // 分配角色
+        if (user.getRoleCodes() != null && !user.getRoleCodes().isEmpty()) {
+            Set<SysRole> roles = user.getRoleCodes().stream()
+                    .map(roleRepository::findByRoleCode)
+                    .filter(Optional::isPresent)
+                    .map(Optional::get)
+                    .collect(Collectors.toSet());
+            existing.setRoles(roles);
+        }
+        SysUser saved = userRepository.save(existing);
+        return ResponseEntity.ok(ApiResponse.success("更新成功", saved));
     }
 
     @Operation(summary = "删除用户")

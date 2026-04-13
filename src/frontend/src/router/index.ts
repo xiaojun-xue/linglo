@@ -22,7 +22,8 @@ const routes: RouteRecordRaw[] = [
       { path: 'reviews', name: 'Reviews', component: () => import('@/views/Reviews.vue'), meta: { title: '评审管理', requiresAuth: true } },
       { path: 'qa', name: 'QaManagement', component: () => import('@/views/QaManagement.vue'), meta: { title: '测试管理', requiresAuth: true } },
       { path: 'docs', name: 'Documents', component: () => import('@/views/Documents.vue'), meta: { title: '文档管理', requiresAuth: true } },
-      { path: 'profile', name: 'Profile', component: () => import('@/views/Profile.vue'), meta: { title: '个人中心', requiresAuth: true } }
+      { path: 'profile', name: 'Profile', component: () => import('@/views/Profile.vue'), meta: { title: '个人中心', requiresAuth: true } },
+      { path: 'users', name: 'Users', component: () => import('@/views/Users.vue'), meta: { title: '用户管理', requiresAuth: true, roles: ['ADMIN'] } }
     ]
   }
 ]
