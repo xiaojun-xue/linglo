@@ -88,7 +88,7 @@ public class UserController {
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ApiResponse<Void>> delete(@PathVariable Long id) {
         if (!userRepository.existsById(id)) {
-            return ResponseEntity.ok(ApiResponse.notFound("用户不存在"));
+            return ResponseEntity.status(404).body(ApiResponse.notFound("用户不存在"));
         }
         userRepository.deleteById(id);
         return ResponseEntity.ok(ApiResponse.success("删除成功", null));

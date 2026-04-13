@@ -1,0 +1,30 @@
+-------------------------------------------------------------------------------
+Test set: com.ipd.platform.controller.ReviewControllerTest$UpdateTests
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.306 s <<< FAILURE! -- in com.ipd.platform.controller.ReviewControllerTest$UpdateTests
+com.ipd.platform.controller.ReviewControllerTest$UpdateTests.updateNotFound -- Time elapsed: 0.148 s <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<400>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.ipd.platform.controller.ReviewControllerTest.createProject(ReviewControllerTest.java:83)
+	at com.ipd.platform.controller.ReviewControllerTest.setUp(ReviewControllerTest.java:71)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.ipd.platform.controller.ReviewControllerTest$UpdateTests.updateTitle -- Time elapsed: 0.153 s <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<400>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:637)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at com.ipd.platform.controller.ReviewControllerTest.createProject(ReviewControllerTest.java:83)
+	at com.ipd.platform.controller.ReviewControllerTest.setUp(ReviewControllerTest.java:71)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+

@@ -40,7 +40,7 @@ public class SprintController {
             PrjSprint sprint = sprintService.getById(id);
             return ResponseEntity.ok(ApiResponse.success(sprint));
         } catch (RuntimeException e) {
-            return ResponseEntity.ok(ApiResponse.notFound(e.getMessage()));
+            return ResponseEntity.status(404).body(ApiResponse.notFound(e.getMessage()));
         }
     }
 
@@ -52,7 +52,7 @@ public class SprintController {
             PrjSprint created = sprintService.create(sprint);
             return ResponseEntity.ok(ApiResponse.success("创建成功", created));
         } catch (Exception e) {
-            return ResponseEntity.ok(ApiResponse.error(e.getMessage()));
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
         }
     }
 
@@ -64,7 +64,7 @@ public class SprintController {
             PrjSprint updated = sprintService.update(id, sprint);
             return ResponseEntity.ok(ApiResponse.success("更新成功", updated));
         } catch (RuntimeException e) {
-            return ResponseEntity.ok(ApiResponse.notFound(e.getMessage()));
+            return ResponseEntity.status(404).body(ApiResponse.notFound(e.getMessage()));
         }
     }
 

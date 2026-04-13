@@ -46,7 +46,7 @@ public class ProjectController {
             PrjProject project = projectService.getById(id);
             return ResponseEntity.ok(ApiResponse.success(project));
         } catch (RuntimeException e) {
-            return ResponseEntity.ok(ApiResponse.notFound(e.getMessage()));
+            return ResponseEntity.status(404).body(ApiResponse.notFound(e.getMessage()));
         }
     }
 
@@ -58,7 +58,7 @@ public class ProjectController {
             PrjProject created = projectService.create(project);
             return ResponseEntity.ok(ApiResponse.success("创建成功", created));
         } catch (Exception e) {
-            return ResponseEntity.ok(ApiResponse.error(e.getMessage()));
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
         }
     }
 
@@ -70,7 +70,7 @@ public class ProjectController {
             PrjProject updated = projectService.update(id, project);
             return ResponseEntity.ok(ApiResponse.success("更新成功", updated));
         } catch (RuntimeException e) {
-            return ResponseEntity.ok(ApiResponse.notFound(e.getMessage()));
+            return ResponseEntity.status(404).body(ApiResponse.notFound(e.getMessage()));
         }
     }
 
@@ -82,7 +82,7 @@ public class ProjectController {
             PrjProject updated = projectService.updateStage(id, stage);
             return ResponseEntity.ok(ApiResponse.success("阶段更新成功", updated));
         } catch (RuntimeException e) {
-            return ResponseEntity.ok(ApiResponse.notFound(e.getMessage()));
+            return ResponseEntity.status(404).body(ApiResponse.notFound(e.getMessage()));
         }
     }
 
@@ -94,7 +94,7 @@ public class ProjectController {
             projectService.delete(id);
             return ResponseEntity.ok(ApiResponse.success("删除成功", null));
         } catch (RuntimeException e) {
-            return ResponseEntity.ok(ApiResponse.notFound(e.getMessage()));
+            return ResponseEntity.status(404).body(ApiResponse.notFound(e.getMessage()));
         }
     }
 

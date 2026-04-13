@@ -49,7 +49,7 @@ public class QaController {
             QaTestCase testCase = qaService.getTestCase(id);
             return ResponseEntity.ok(ApiResponse.success(testCase));
         } catch (RuntimeException e) {
-            return ResponseEntity.ok(ApiResponse.notFound(e.getMessage()));
+            return ResponseEntity.status(404).body(ApiResponse.notFound(e.getMessage()));
         }
     }
 
@@ -61,7 +61,7 @@ public class QaController {
             QaTestCase created = qaService.createTestCase(testCase);
             return ResponseEntity.ok(ApiResponse.success("创建成功", created));
         } catch (Exception e) {
-            return ResponseEntity.ok(ApiResponse.error(e.getMessage()));
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
         }
     }
 
@@ -73,7 +73,7 @@ public class QaController {
             QaTestCase updated = qaService.updateTestCase(id, testCase);
             return ResponseEntity.ok(ApiResponse.success("更新成功", updated));
         } catch (RuntimeException e) {
-            return ResponseEntity.ok(ApiResponse.notFound(e.getMessage()));
+            return ResponseEntity.status(404).body(ApiResponse.notFound(e.getMessage()));
         }
     }
 
@@ -85,7 +85,7 @@ public class QaController {
             qaService.deleteTestCase(id);
             return ResponseEntity.ok(ApiResponse.success("删除成功", null));
         } catch (RuntimeException e) {
-            return ResponseEntity.ok(ApiResponse.notFound(e.getMessage()));
+            return ResponseEntity.status(404).body(ApiResponse.notFound(e.getMessage()));
         }
     }
 
@@ -113,7 +113,7 @@ public class QaController {
             QaBug bug = qaService.getBug(id);
             return ResponseEntity.ok(ApiResponse.success(bug));
         } catch (RuntimeException e) {
-            return ResponseEntity.ok(ApiResponse.notFound(e.getMessage()));
+            return ResponseEntity.status(404).body(ApiResponse.notFound(e.getMessage()));
         }
     }
 
@@ -125,7 +125,7 @@ public class QaController {
             QaBug created = qaService.createBug(bug);
             return ResponseEntity.ok(ApiResponse.success("创建成功", created));
         } catch (Exception e) {
-            return ResponseEntity.ok(ApiResponse.error(e.getMessage()));
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
         }
     }
 
@@ -137,7 +137,7 @@ public class QaController {
             QaBug updated = qaService.updateBug(id, bug);
             return ResponseEntity.ok(ApiResponse.success("更新成功", updated));
         } catch (RuntimeException e) {
-            return ResponseEntity.ok(ApiResponse.notFound(e.getMessage()));
+            return ResponseEntity.status(404).body(ApiResponse.notFound(e.getMessage()));
         }
     }
 
@@ -149,7 +149,7 @@ public class QaController {
             QaBug updated = qaService.updateBugStatus(id, status);
             return ResponseEntity.ok(ApiResponse.success("状态更新成功", updated));
         } catch (RuntimeException e) {
-            return ResponseEntity.ok(ApiResponse.notFound(e.getMessage()));
+            return ResponseEntity.status(404).body(ApiResponse.notFound(e.getMessage()));
         }
     }
 
@@ -161,7 +161,7 @@ public class QaController {
             qaService.deleteBug(id);
             return ResponseEntity.ok(ApiResponse.success("删除成功", null));
         } catch (RuntimeException e) {
-            return ResponseEntity.ok(ApiResponse.notFound(e.getMessage()));
+            return ResponseEntity.status(404).body(ApiResponse.notFound(e.getMessage()));
         }
     }
 

@@ -47,7 +47,7 @@ public class ReviewController {
             RevReview review = reviewService.getById(id);
             return ResponseEntity.ok(ApiResponse.success(review));
         } catch (RuntimeException e) {
-            return ResponseEntity.ok(ApiResponse.notFound(e.getMessage()));
+            return ResponseEntity.status(404).body(ApiResponse.notFound(e.getMessage()));
         }
     }
 
@@ -59,7 +59,7 @@ public class ReviewController {
             RevReview created = reviewService.create(review);
             return ResponseEntity.ok(ApiResponse.success("创建成功", created));
         } catch (Exception e) {
-            return ResponseEntity.ok(ApiResponse.error(e.getMessage()));
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
         }
     }
 
@@ -71,7 +71,7 @@ public class ReviewController {
             RevReview updated = reviewService.update(id, review);
             return ResponseEntity.ok(ApiResponse.success("更新成功", updated));
         } catch (RuntimeException e) {
-            return ResponseEntity.ok(ApiResponse.notFound(e.getMessage()));
+            return ResponseEntity.status(404).body(ApiResponse.notFound(e.getMessage()));
         }
     }
 

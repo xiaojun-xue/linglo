@@ -48,7 +48,7 @@ public class TaskController {
             PrjTask task = taskService.getById(id);
             return ResponseEntity.ok(ApiResponse.success(task));
         } catch (RuntimeException e) {
-            return ResponseEntity.ok(ApiResponse.notFound(e.getMessage()));
+            return ResponseEntity.status(404).body(ApiResponse.notFound(e.getMessage()));
         }
     }
 
@@ -60,7 +60,7 @@ public class TaskController {
             PrjTask created = taskService.create(task);
             return ResponseEntity.ok(ApiResponse.success("创建成功", created));
         } catch (Exception e) {
-            return ResponseEntity.ok(ApiResponse.error(e.getMessage()));
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
         }
     }
 
@@ -72,7 +72,7 @@ public class TaskController {
             PrjTask updated = taskService.update(id, task);
             return ResponseEntity.ok(ApiResponse.success("更新成功", updated));
         } catch (RuntimeException e) {
-            return ResponseEntity.ok(ApiResponse.notFound(e.getMessage()));
+            return ResponseEntity.status(404).body(ApiResponse.notFound(e.getMessage()));
         }
     }
 
@@ -84,7 +84,7 @@ public class TaskController {
             PrjTask updated = taskService.updateStatus(id, status);
             return ResponseEntity.ok(ApiResponse.success("状态更新成功", updated));
         } catch (RuntimeException e) {
-            return ResponseEntity.ok(ApiResponse.notFound(e.getMessage()));
+            return ResponseEntity.status(404).body(ApiResponse.notFound(e.getMessage()));
         }
     }
 
@@ -96,7 +96,7 @@ public class TaskController {
             PrjTask updated = taskService.assign(id, assigneeId);
             return ResponseEntity.ok(ApiResponse.success("分配成功", updated));
         } catch (RuntimeException e) {
-            return ResponseEntity.ok(ApiResponse.notFound(e.getMessage()));
+            return ResponseEntity.status(404).body(ApiResponse.notFound(e.getMessage()));
         }
     }
 
@@ -108,7 +108,7 @@ public class TaskController {
             taskService.delete(id);
             return ResponseEntity.ok(ApiResponse.success("删除成功", null));
         } catch (RuntimeException e) {
-            return ResponseEntity.ok(ApiResponse.notFound(e.getMessage()));
+            return ResponseEntity.status(404).body(ApiResponse.notFound(e.getMessage()));
         }
     }
 
