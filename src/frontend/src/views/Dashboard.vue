@@ -27,21 +27,26 @@
         v-for="(stat, index) in stats"
         :key="stat.key"
         class="stat-card"
+        :class="{ 'is-active': activeStat === stat.key }"
         :style="{ animationDelay: `${index * 0.08}s` }"
-        @click="goToPage(stat.path)"
+        @click="handleStatClick(stat)"
       >
+        <div class="stat-selected-bar" :style="{ background: stat.color }"></div>
         <div class="stat-icon" :style="{ background: stat.bgColor }">
           <el-icon :size="24" :color="stat.color">
             <component :is="stat.icon" />
           </el-icon>
         </div>
         <div class="stat-info">
-          <span class="stat-value">{{ stat.value }}</span>
+          <span class="stat-value" :style="{ color: stat.color }">{{ stat.value }}</span>
           <span class="stat-label">{{ stat.label }}</span>
         </div>
         <div class="stat-trend" :class="stat.trend > 0 ? 'up' : 'neutral'">
           <el-icon v-if="stat.trend > 0"><Top /></el-icon>
           <span>{{ stat.trend > 0 ? `+${stat.trend}` : stat.trend }}%</span>
+        </div>
+        <div class="stat-arrow">
+          <el-icon><ArrowRight /></el-icon>
         </div>
       </div>
     </div>
@@ -214,6 +219,7 @@ const router = useRouter()
 const userStore = useUserStore()
 
 const loading = ref(true)
+const activeStat = ref<string | null>(null)
 const stats = ref([
   { key: 'projects', label: '项目总数', value: 0, icon: FolderOpened, color: '#3b82f6', bgColor: 'rgba(59, 130, 246, 0.1)', path: '/projects', trend: 0 },
   { key: 'requirements', label: '需求总数', value: 0, icon: Document, color: '#8b5cf6', bgColor: 'rgba(139, 92, 246, 0.1)', path: '/requirements', trend: 12 },
@@ -267,6 +273,13 @@ function handleTodoChange(todo: any) {
 
 function goToPage(path: string) {
   router.push(path)
+}
+
+function handleStatClick(stat: any) {
+  activeStat.value = stat.key
+  setTimeout(() => {
+    router.push(stat.path)
+  }, 150)
 }
 
 function goCreate(type: string) {
@@ -422,7 +435,7 @@ onMounted(() => {
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--color-border-light);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   animation: fadeInUp 0.5s ease-out both;
   position: relative;
   overflow: hidden;
@@ -443,10 +456,71 @@ onMounted(() => {
 .stat-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary-light);
 }
 
 .stat-card:hover::before {
+  opacity: 0.6;
+}
+
+/* 选中状态 - 左侧高亮条 */
+.stat-selected-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-card.is-active .stat-selected-bar,
+.stat-card:hover .stat-selected-bar {
+  transform: scaleY(1);
+}
+
+/* 选中状态 - 背景高亮 */
+.stat-card.is-active {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(26, 54, 93, 0.1), var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.stat-card.is-active::before {
   opacity: 1;
+}
+
+/* 数字颜色随卡片主题变化 */
+.stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover .stat-value,
+.stat-card.is-active .stat-value {
+  transform: scale(1.05);
+}
+
+/* 箭头指示器 */
+.stat-arrow {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%) translateX(8px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: var(--color-primary);
+}
+
+.stat-card:hover .stat-arrow,
+.stat-card.is-active .stat-arrow {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
 }
 
 .stat-icon {
