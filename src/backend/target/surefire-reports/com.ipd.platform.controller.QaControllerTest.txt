@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.ipd.platform.controller.QaControllerTest
--------------------------------------------------------------------------------
-Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.276 s -- in com.ipd.platform.controller.QaControllerTest
