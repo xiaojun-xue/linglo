@@ -9,11 +9,6 @@
 
     <el-card class="filter-card">
       <el-form :inline="true">
-        <el-form-item label="所属项目">
-          <el-select v-model="selectedProject" placeholder="选择项目" @change="fetchSprints" style="width:250px">
-            <el-option v-for="p in projects" :key="p.id" :label="p.name" :value="p.id" />
-          </el-select>
-        </el-form-item>
         <el-form-item label="状态">
           <el-select v-model="statusFilter" placeholder="全部" @change="fetchSprints" clearable>
             <el-option label="规划中" :value="1" />
@@ -54,19 +49,19 @@
       </el-col>
       
       <el-col :span="10">
-        <el-card v-if="selectedProject">
+        <el-card v-if="projectStore.selectedProject">
           <template #header>
             <span>项目信息</span>
           </template>
           <el-descriptions :column="1" border size="small">
-            <el-descriptions-item label="项目名称">{{ selectedProjectInfo?.name }}</el-descriptions-item>
+            <el-descriptions-item label="项目名称">{{ projectStore.selectedProject?.name }}</el-descriptions-item>
             <el-descriptions-item label="IPD阶段">
-              <el-tag size="small" :type="getStageTag(selectedProjectInfo?.stage)">
-                {{ getStageName(selectedProjectInfo?.stage) }}
+              <el-tag size="small" :type="getStageTag(projectStore.selectedProject?.stage)">
+                {{ getStageName(projectStore.selectedProject?.stage) }}
               </el-tag>
             </el-descriptions-item>
             <el-descriptions-item label="进度">
-              <el-progress :percentage="selectedProjectInfo?.progress || 0" :stroke-width="10" />
+              <el-progress :percentage="projectStore.selectedProject?.progress || 0" :stroke-width="10" />
             </el-descriptions-item>
           </el-descriptions>
         </el-card>
@@ -82,7 +77,7 @@
             <el-descriptions-item label="总故事点">{{ currentSprint.totalPoint || '-' }}</el-descriptions-item>
             <el-descriptions-item label="已完成故事点">{{ currentSprint.completedPoint || '-' }}</el-descriptions-item>
           </el-descriptions>
-          <BurndownChart :project-id="selectedProject" />
+          <BurndownChart :project-id="projectStore.selectedProjectId" />
         </el-card>
       </el-col>
     </el-row>
@@ -114,8 +109,10 @@
 import { ref, computed, reactive, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import { getSprintList, createSprint, updateSprint, startSprint, completeSprint, closeSprint } from '@/api/sprint'
-import { getProjectList } from '@/api/project'
+import { useProjectStore } from '@/stores/project'
 import BurndownChart from '@/components/BurndownChart.vue'
+
+const projectStore = useProjectStore()
 
 const loading = ref(false)
 const submitting = ref(false)
@@ -123,9 +120,7 @@ const dialogVisible = ref(false)
 const isEdit = ref(false)
 const formRef = ref()
 
-const projects = ref<any[]>([])
 const sprints = ref<any[]>([])
-const selectedProject = ref<number | undefined>()
 const statusFilter = ref<number | undefined>()
 const currentId = ref<number | null>(null)
 
@@ -137,7 +132,6 @@ const rules = {
   endDate: [{ required: true, message: '请选择结束日期', trigger: 'change' }]
 }
 
-const selectedProjectInfo = computed(() => projects.value.find(p => p.id === selectedProject.value))
 const currentSprint = computed(() => sprints.value.find(s => s.status === 2))
 const filteredSprints = computed(() => sprints.value.filter(s => !statusFilter.value || s.status === statusFilter.value))
 
@@ -161,28 +155,18 @@ function getStageTag(stage: number) {
   return map[stage] || 'info'
 }
 
-async function fetchProjects() {
-  try {
-    const res = await getProjectList({ page: 0, size: 100 })
-    if (res.code === 200) {
-      projects.value = res.data.content || []
-      if (projects.value.length) selectedProject.value = projects.value[0].id
-    }
-  } catch (e) { console.error(e) }
-}
-
 async function fetchSprints() {
-  if (!selectedProject.value) return
+  if (!projectStore.selectedProjectId) return
   loading.value = true
   try {
-    const res = await getSprintList(selectedProject.value)
+    const res = await getSprintList(projectStore.selectedProjectId)
     if (res.code === 200) sprints.value = res.data || []
   } catch (e: any) { ElMessage.error(e.message || '获取Sprint失败') }
   finally { loading.value = false }
 }
 
 function showCreateDialog() {
-  if (!selectedProject.value) { ElMessage.warning('请先选择项目'); return }
+  if (!projectStore.selectedProjectId) { ElMessage.warning('请先选择项目'); return }
   isEdit.value = false
   Object.assign(form, { name: '', goal: '', startDate: '', endDate: '' })
   dialogVisible.value = true
@@ -201,7 +185,7 @@ async function handleSubmit() {
     if (valid) {
       submitting.value = true
       try {
-        const data = { ...form, projectId: selectedProject.value }
+        const data = { ...form, projectId: projectStore.selectedProjectId }
         if (isEdit.value && currentId.value) {
           await updateSprint(currentId.value, data)
           ElMessage.success('更新成功')
@@ -242,7 +226,7 @@ async function handleClose(row: any) {
 }
 
 onMounted(() => {
-  fetchProjects().then(() => fetchSprints())
+  fetchSprints()
 })
 </script>
 

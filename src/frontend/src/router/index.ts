@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
 import { useUserStore } from '@/stores/user'
+import { useProjectStore } from '@/stores/project'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -15,13 +16,13 @@ const routes: RouteRecordRaw[] = [
     redirect: '/dashboard',
     children: [
       { path: 'dashboard', name: 'Dashboard', component: () => import('@/views/Dashboard.vue'), meta: { title: '工作台', requiresAuth: true } },
-      { path: 'requirements', name: 'Requirements', component: () => import('@/views/Requirements.vue'), meta: { title: '需求管理', requiresAuth: true } },
-      { path: 'projects', name: 'Projects', component: () => import('@/views/Projects.vue'), meta: { title: '项目管理', requiresAuth: true } },
-      { path: 'tasks', name: 'Tasks', component: () => import('@/views/Tasks.vue'), meta: { title: '任务管理', requiresAuth: true } },
-      { path: 'sprints', name: 'Sprints', component: () => import('@/views/Sprints.vue'), meta: { title: 'Sprint管理', requiresAuth: true } },
-      { path: 'reviews', name: 'Reviews', component: () => import('@/views/Reviews.vue'), meta: { title: '评审管理', requiresAuth: true } },
-      { path: 'qa', name: 'QaManagement', component: () => import('@/views/QaManagement.vue'), meta: { title: '测试管理', requiresAuth: true } },
-      { path: 'docs', name: 'Documents', component: () => import('@/views/Documents.vue'), meta: { title: '文档管理', requiresAuth: true } },
+      { path: 'requirements', name: 'Requirements', component: () => import('@/views/Requirements.vue'), meta: { title: '需求管理', requiresAuth: true, requiresProject: true } },
+      { path: 'projects', redirect: '/dashboard' },
+      { path: 'tasks', name: 'Tasks', component: () => import('@/views/Tasks.vue'), meta: { title: '任务管理', requiresAuth: true, requiresProject: true } },
+      { path: 'sprints', name: 'Sprints', component: () => import('@/views/Sprints.vue'), meta: { title: 'Sprint管理', requiresAuth: true, requiresProject: true } },
+      { path: 'reviews', name: 'Reviews', component: () => import('@/views/Reviews.vue'), meta: { title: '评审管理', requiresAuth: true, requiresProject: true } },
+      { path: 'qa', name: 'QaManagement', component: () => import('@/views/QaManagement.vue'), meta: { title: '测试管理', requiresAuth: true, requiresProject: true } },
+      { path: 'docs', name: 'Documents', component: () => import('@/views/Documents.vue'), meta: { title: '文档管理', requiresAuth: true, requiresProject: true } },
       { path: 'profile', name: 'Profile', component: () => import('@/views/Profile.vue'), meta: { title: '个人中心', requiresAuth: true } },
       { path: 'users', name: 'Users', component: () => import('@/views/Users.vue'), meta: { title: '用户管理', requiresAuth: true, roles: ['ADMIN'] } }
     ]
@@ -40,6 +41,14 @@ router.beforeEach((to, from, next) => {
     if (!userStore.token) {
       next({ name: 'Login', query: { redirect: to.fullPath } })
       return
+    }
+    // 数据页面需要选中项目
+    if (to.meta.requiresProject) {
+      const projectStore = useProjectStore()
+      if (!projectStore.selectedProjectId) {
+        next({ name: 'Dashboard' })
+        return
+      }
     }
   }
   next()

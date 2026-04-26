@@ -12,11 +12,6 @@
         <el-form-item label="关键词">
           <el-input v-model="filters.keyword" placeholder="搜索任务" clearable @keyup.enter="fetchList" />
         </el-form-item>
-        <el-form-item label="项目">
-          <el-select v-model="filters.projectId" placeholder="全部" clearable>
-            <el-option v-for="p in projects" :key="p.id" :label="p.name" :value="p.id" />
-          </el-select>
-        </el-form-item>
         <el-form-item label="状态">
           <el-select v-model="filters.status" placeholder="全部" clearable>
             <el-option label="待办" value="todo" />
@@ -77,11 +72,6 @@
         <el-form-item label="任务标题" prop="title">
           <el-input v-model="form.title" placeholder="请输入任务标题" />
         </el-form-item>
-        <el-form-item label="所属项目" prop="projectId">
-          <el-select v-model="form.projectId" placeholder="请选择" style="width: 100%">
-            <el-option v-for="p in projects" :key="p.id" :label="p.name" :value="p.id" />
-          </el-select>
-        </el-form-item>
         <el-form-item label="任务类型" prop="type">
           <el-select v-model="form.type" placeholder="请选择" style="width: 100%">
             <el-option label="开发" :value="1" />
@@ -118,7 +108,9 @@
 import { ref, reactive, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { getTaskList, createTask, updateTask, deleteTask } from '@/api/task'
-import { getProjectList } from '@/api/project'
+import { useProjectStore } from '@/stores/project'
+
+const projectStore = useProjectStore()
 
 const loading = ref(false)
 const submitting = ref(false)
@@ -127,15 +119,13 @@ const isEdit = ref(false)
 const formRef = ref()
 
 const list = ref<any[]>([])
-const projects = ref<any[]>([])
-const filters = reactive({ keyword: '', projectId: undefined as number | undefined, status: '' })
+const filters = reactive({ keyword: '', status: '' })
 const pagination = reactive({ page: 1, size: 20, total: 0 })
-const form = reactive<any>({ title: '', projectId: undefined, type: 1, priority: 2, dueDate: '', description: '' })
+const form = reactive<any>({ title: '', type: 1, priority: 2, dueDate: '', description: '' })
 const currentId = ref<number | null>(null)
 
 const rules = {
-  title: [{ required: true, message: '请输入任务标题', trigger: 'blur' }],
-  projectId: [{ required: true, message: '请选择所属项目', trigger: 'change' }]
+  title: [{ required: true, message: '请输入任务标题', trigger: 'blur' }]
 }
 
 function getTypeName(type: number) { return { 1: '开发', 2: '测试', 3: '设计', 4: '文档', 5: '其他' }[type] || '其他' }
@@ -149,7 +139,7 @@ async function fetchList() {
   try {
     const res = await getTaskList({
       keyword: filters.keyword || undefined,
-      projectId: filters.projectId,
+      projectId: projectStore.selectedProjectId || undefined,
       status: filters.status || undefined,
       page: pagination.page - 1,
       size: pagination.size
@@ -162,25 +152,18 @@ async function fetchList() {
   finally { loading.value = false }
 }
 
-async function fetchProjects() {
-  try {
-    const res = await getProjectList({ page: 0, size: 100 })
-    if (res.code === 200) projects.value = res.data.content || []
-  } catch (e) { console.error('获取项目列表失败', e) }
-}
-
-function resetFilters() { filters.keyword = ''; filters.projectId = undefined; filters.status = ''; fetchList() }
+function resetFilters() { filters.keyword = ''; filters.status = ''; fetchList() }
 
 function showCreateDialog() {
   isEdit.value = false
-  Object.assign(form, { title: '', projectId: undefined, type: 1, priority: 2, dueDate: '', description: '' })
+  Object.assign(form, { title: '', type: 1, priority: 2, dueDate: '', description: '' })
   dialogVisible.value = true
 }
 
 function showEditDialog(row: any) {
   isEdit.value = true
   currentId.value = row.id
-  Object.assign(form, { title: row.title, projectId: row.projectId, type: row.type, priority: row.priority, dueDate: row.dueDate, description: row.description })
+  Object.assign(form, { title: row.title, type: row.type, priority: row.priority, dueDate: row.dueDate, description: row.description })
   dialogVisible.value = true
 }
 
@@ -191,7 +174,7 @@ async function handleSubmit() {
       submitting.value = true
       try {
         if (isEdit.value && currentId.value) { await updateTask(currentId.value, form); ElMessage.success('更新成功') }
-        else { await createTask(form); ElMessage.success('创建成功') }
+        else { await createTask({ ...form, projectId: projectStore.selectedProjectId }); ElMessage.success('创建成功') }
         dialogVisible.value = false
         fetchList()
       } catch (e: any) { ElMessage.error(e.message || '操作失败') }
@@ -209,7 +192,7 @@ async function handleDelete(row: any) {
   } catch (e: any) { if (e !== 'cancel') ElMessage.error(e.message || '删除失败') }
 }
 
-onMounted(() => { fetchList(); fetchProjects() })
+onMounted(() => { fetchList() })
 </script>
 
 <style scoped>

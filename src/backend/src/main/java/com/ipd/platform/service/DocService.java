@@ -30,7 +30,7 @@ public class DocService {
         if (parentId != null) {
             return documentRepository.findByParentIdOrderBySortOrderAsc(parentId);
         }
-        return documentRepository.findByParentIdOrderBySortOrderAsc(0L);
+        return documentRepository.findByParentIdIsNullOrderBySortOrderAsc();
     }
 
     public DocDocument getById(Long id) {

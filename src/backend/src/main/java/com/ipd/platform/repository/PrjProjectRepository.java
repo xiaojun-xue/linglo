@@ -44,4 +44,7 @@ public interface PrjProjectRepository extends JpaRepository<PrjProject, Long> {
 
     @Query("SELECT COUNT(p) FROM PrjProject p WHERE p.status = :status")
     long countByStatus(@Param("status") Integer status);
+
+    @Query("SELECT COALESCE(MAX(p.projectNo), '') FROM PrjProject p WHERE p.projectNo LIKE :pattern")
+    String findMaxProjectNoByPattern(@Param("pattern") String pattern);
 }

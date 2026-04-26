@@ -83,7 +83,7 @@ public class ReqRequirement extends BaseEntity {
      */
     @Column(name = "status", length = 30)
     @Builder.Default
-    private String status = "collected";
+    private String status = "new";
 
     /**
      * 所属产品线ID
@@ -122,10 +122,47 @@ public class ReqRequirement extends BaseEntity {
     private String ownerName;
 
     /**
-     * 父需求ID（支持需求分解）
+     * 父需求ID（支持需求分解：IR→SR→AR）
      */
     @Column(name = "parent_id")
     private Long parentId;
+
+    /**
+     * 需求层级：1-IR(初始需求)，2-SR(系统需求)，3-AR(分配需求)
+     */
+    @Column(name = "level")
+    @Builder.Default
+    private Integer level = 1;
+
+    // ==================== 5W2H 结构化描述（IR层级使用） ====================
+
+    /** Who — 目标用户/干系人 */
+    @Column(name = "w_who", length = 500)
+    private String who;
+
+    /** What — 需要什么功能/能力 */
+    @Column(name = "w_what", columnDefinition = "TEXT")
+    private String what;
+
+    /** When — 时间要求/期望时间 */
+    @Column(name = "w_when", length = 500)
+    private String whenDesc;
+
+    /** Where — 使用场景/环境 */
+    @Column(name = "w_where", length = 500)
+    private String whereDesc;
+
+    /** Why — 业务动机/价值 */
+    @Column(name = "w_why", columnDefinition = "TEXT")
+    private String whyDesc;
+
+    /** How — 实现方式/路径 */
+    @Column(name = "w_how", columnDefinition = "TEXT")
+    private String howDesc;
+
+    /** How Much — 规模/成本/范围 */
+    @Column(name = "w_how_much", length = 500)
+    private String howMuch;
 
     // ==================== 枚举常量 ====================
 
@@ -195,30 +232,65 @@ public class ReqRequirement extends BaseEntity {
     }
 
     /**
+     * 需求层级枚举
+     */
+    public static final class Level {
+        public static final int IR = 1;   // 初始需求 (Initial Requirement)
+        public static final int SR = 2;   // 系统需求 (System Requirement)
+        public static final int AR = 3;   // 分配需求 (Allocation Requirement)
+
+        public static String getName(Integer level) {
+            if (level == null) return "未知";
+            return switch (level) {
+                case IR -> "IR-初始需求";
+                case SR -> "SR-系统需求";
+                case AR -> "AR-分配需求";
+                default -> "未知";
+            };
+        }
+
+        public static String getPrefix(Integer level) {
+            if (level == null) return "REQ";
+            return switch (level) {
+                case IR -> "IR";
+                case SR -> "SR";
+                case AR -> "AR";
+                default -> "REQ";
+            };
+        }
+    }
+
+    /**
      * 需求状态枚举
      */
     public static final class Status {
-        public static final String COLLECTED = "collected";     // 收集
-        public static final String ANALYZED = "analyzed";       // 已分析
-        public static final String REVIEWED = "reviewed";        // 已评审
-        public static final String DESIGN = "design";            // 设计中
-        public static final String DEVELOP = "develop";          // 开发中
-        public static final String TEST = "test";                // 测试中
-        public static final String RELEASED = "released";       // 已发布
-        public static final String CLOSED = "closed";            // 已关闭
+        public static final String NEW = "new";                 // 新增
+        public static final String REVIEWING = "reviewing";     // 评审中
+        public static final String ARCHIVED = "archived";       // 已归档
+        public static final String TESTING = "testing";         // 测试中
+        public static final String ACCEPTED = "accepted";       // 已验收
 
         public static String getName(String status) {
             if (status == null) return "未知";
             return switch (status) {
-                case COLLECTED -> "收集";
-                case ANALYZED -> "已分析";
-                case REVIEWED -> "已评审";
-                case DESIGN -> "设计";
-                case DEVELOP -> "开发";
-                case TEST -> "测试";
-                case RELEASED -> "已发布";
-                case CLOSED -> "已关闭";
+                case NEW -> "新增";
+                case REVIEWING -> "评审中";
+                case ARCHIVED -> "已归档";
+                case TESTING -> "测试中";
+                case ACCEPTED -> "已验收";
                 default -> status;
+            };
+        }
+
+        /** 获取下一个合法状态 */
+        public static String getNextStatus(String current) {
+            if (current == null) return null;
+            return switch (current) {
+                case NEW -> REVIEWING;
+                case REVIEWING -> ARCHIVED;
+                case ARCHIVED -> TESTING;
+                case TESTING -> ACCEPTED;
+                default -> null;
             };
         }
     }

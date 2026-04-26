@@ -56,6 +56,7 @@ export const useUserStore = defineStore('user', () => {
     isLoggedIn,
     loginAction,
     fetchUserInfo,
+    logoutAction,
     logout,
     hasRole
   }

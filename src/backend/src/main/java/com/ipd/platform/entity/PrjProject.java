@@ -132,7 +132,32 @@ public class PrjProject extends BaseEntity {
         public static final int CONCEPT = 1;   // 概念阶段
         public static final int PLAN = 2;      // 计划阶段
         public static final int DEVELOP = 3;   // 开发阶段
-        public static final int LAUNCH = 4;    // 发布阶段
+        public static final int VERIFY = 4;    // 验证阶段
+        public static final int LAUNCH = 5;    // 发布阶段
+
+        /**
+         * 阶段推进所需的评审类型映射
+         * 概念→计划: CDCP, 计划→开发: PDCP, 开发→验证: TR4, 验证→发布: ADCP
+         */
+        public static Integer getRequiredReviewType(int currentStage) {
+            return switch (currentStage) {
+                case CONCEPT -> 1;  // CDCP
+                case PLAN -> 2;     // PDCP
+                case DEVELOP -> 3;  // TR4
+                case VERIFY -> 4;   // ADCP
+                default -> null;
+            };
+        }
+
+        public static String getRequiredReviewName(int currentStage) {
+            return switch (currentStage) {
+                case CONCEPT -> "CDCP评审";
+                case PLAN -> "PDCP评审";
+                case DEVELOP -> "TR4评审";
+                case VERIFY -> "ADCP评审";
+                default -> null;
+            };
+        }
 
         public static String getName(Integer stage) {
             if (stage == null) return "未知";
@@ -140,6 +165,7 @@ public class PrjProject extends BaseEntity {
                 case CONCEPT -> "概念阶段";
                 case PLAN -> "计划阶段";
                 case DEVELOP -> "开发阶段";
+                case VERIFY -> "验证阶段";
                 case LAUNCH -> "发布阶段";
                 default -> "未知";
             };
@@ -151,6 +177,7 @@ public class PrjProject extends BaseEntity {
                 case CONCEPT -> "Concept";
                 case PLAN -> "Plan";
                 case DEVELOP -> "Develop";
+                case VERIFY -> "Verify";
                 case LAUNCH -> "Launch";
                 default -> "Unknown";
             };

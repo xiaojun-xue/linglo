@@ -86,6 +86,25 @@ public class ProjectController {
         }
     }
 
+    @Operation(summary = "推进项目阶段（IPD评审门控）")
+    @PutMapping("/{id}/advance-stage")
+    @PreAuthorize("hasAnyRole('ADMIN', 'PGM')")
+    public ResponseEntity<ApiResponse<Map<String, Object>>> advanceStage(
+            @PathVariable Long id,
+            @RequestParam(defaultValue = "false") boolean force) {
+        try {
+            Map<String, Object> result = projectService.advanceStage(id, force);
+            boolean advanced = (boolean) result.get("advanced");
+            if (advanced) {
+                return ResponseEntity.ok(ApiResponse.success("阶段推进成功", result));
+            } else {
+                return ResponseEntity.ok(ApiResponse.success(result));
+            }
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body(ApiResponse.error(e.getMessage()));
+        }
+    }
+
     @Operation(summary = "删除项目")
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")

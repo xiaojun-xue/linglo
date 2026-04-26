@@ -34,3 +34,8 @@ export function deleteProject(id: number) {
 export function getProjectStatistics(id: number) {
   return request.get(`/projects/${id}/statistics`)
 }
+
+// 推进项目阶段（IPD评审门控）
+export function advanceProjectStage(id: number, force: boolean = false) {
+  return request.put(`/projects/${id}/advance-stage`, null, { params: { force } })
+}

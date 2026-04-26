@@ -78,6 +78,9 @@
 import { ref, reactive, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import { getDocTree, getDocById, createDoc, createDocFolder, updateDoc } from '@/api/doc'
+import { useProjectStore } from '@/stores/project'
+
+const projectStore = useProjectStore()
 
 const docTree = ref<any[]>([])
 const currentDoc = ref<any>(null)
@@ -97,7 +100,7 @@ function getCategoryName(c: number) {
 
 async function fetchDocTree() {
   try {
-    const res = await getDocTree()
+    const res = await getDocTree(projectStore.selectedProjectId || undefined)
     if (res.code === 200) docTree.value = res.data || []
   } catch (e) { console.error(e) }
 }

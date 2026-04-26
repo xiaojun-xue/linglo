@@ -88,6 +88,9 @@
 import { ref, reactive, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { getTestCaseList, createTestCase, updateTestCase, deleteTestCase, getBugList, createBug, updateBug, updateBugStatus, deleteBug } from '@/api/qa'
+import { useProjectStore } from '@/stores/project'
+
+const projectStore = useProjectStore()
 
 const activeTab = ref('cases')
 const caseLoading = ref(false)
@@ -128,7 +131,7 @@ function getBugStatusTag(s: number) { return { 1: 'info', 2: 'warning', 3: 'prim
 async function fetchCases() {
   caseLoading.value = true
   try {
-    const res = await getTestCaseList({ keyword: caseFilters.keyword || undefined, module: caseFilters.module || undefined, page: casePage.value - 1, size: caseSize.value })
+    const res = await getTestCaseList({ keyword: caseFilters.keyword || undefined, module: caseFilters.module || undefined, projectId: projectStore.selectedProjectId || undefined, page: casePage.value - 1, size: caseSize.value })
     if (res.code === 200) { cases.value = res.data.content || []; caseTotal.value = res.data.totalElements || 0 }
   } catch (e: any) { ElMessage.error(e.message) }
   finally { caseLoading.value = false }
@@ -137,7 +140,7 @@ async function fetchCases() {
 async function fetchBugs() {
   bugLoading.value = true
   try {
-    const res = await getBugList({ keyword: bugFilters.keyword || undefined, severity: bugFilters.severity, status: bugFilters.status, page: bugPage.value - 1, size: bugSize.value })
+    const res = await getBugList({ keyword: bugFilters.keyword || undefined, severity: bugFilters.severity, status: bugFilters.status, projectId: projectStore.selectedProjectId || undefined, page: bugPage.value - 1, size: bugSize.value })
     if (res.code === 200) { bugs.value = res.data.content || []; bugTotal.value = res.data.totalElements || 0 }
   } catch (e: any) { ElMessage.error(e.message) }
   finally { bugLoading.value = false }

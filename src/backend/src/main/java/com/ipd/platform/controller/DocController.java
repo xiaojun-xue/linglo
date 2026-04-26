@@ -38,7 +38,7 @@ public class DocController {
     }
 
     @Operation(summary = "获取文档树")
-    @GetMapping("/")
+    @GetMapping("/tree")
     @PreAuthorize("hasAnyRole('ADMIN', 'PM', 'PGM', 'DEV', 'QA', 'VIEWER')")
     public ResponseEntity<ApiResponse<List<DocDocument>>> getTree(
             @RequestParam(required = false) Long projectId,
@@ -48,7 +48,7 @@ public class DocController {
     }
 
     @Operation(summary = "获取文档详情")
-    @GetMapping("/{id}")
+    @GetMapping("/{id:\\d+}")
     @PreAuthorize("hasAnyRole('ADMIN', 'PM', 'PGM', 'DEV', 'QA', 'VIEWER')")
     public ResponseEntity<ApiResponse<DocDocument>> getById(@PathVariable Long id) {
         try {

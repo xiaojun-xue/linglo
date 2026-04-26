@@ -54,8 +54,8 @@
               <div class="project-icon" :style="{ background: getProjectColor(project.stage) }">
                 <el-icon><FolderOpened /></el-icon>
               </div>
-              <el-dropdown trigger="click" @command="(cmd: string) => handleCommand(cmd, project)" @click.stop>
-                <el-button text class="more-btn">
+              <el-dropdown trigger="click" @command="(cmd: string) => handleCommand(cmd, project)">
+                <el-button text class="more-btn" @click.stop>
                   <el-icon><MoreFilled /></el-icon>
                 </el-button>
                 <template #dropdown>
@@ -338,11 +338,10 @@ async function handleSubmit() {
 async function fetchProjects() {
   loading.value = true
   try {
-    const statusMap: Record<string, string> = {
-      all: '',
-      concept: '0',
-      plan: '1',
-      development: '2',
+    const stageFilterMap: Record<string, string> = {
+      concept: '1',
+      plan: '2',
+      development: '3',
       verification: '3',
       launch: '4'
     }
@@ -350,8 +349,8 @@ async function fetchProjects() {
       page: String(currentPage.value - 1),
       size: String(pageSize.value)
     })
-    if (currentTab.value !== 'all') {
-      params.set('status', statusMap[currentTab.value])
+    if (currentTab.value !== 'all' && stageFilterMap[currentTab.value]) {
+      params.set('stage', stageFilterMap[currentTab.value])
     }
     if (searchKeyword.value) {
       params.set('keyword', searchKeyword.value)
@@ -370,6 +369,22 @@ async function fetchProjects() {
   }
 }
 
+const stageToInt: Record<string, number> = {
+  concept: 1,
+  plan: 2,
+  development: 3,
+  verification: 3,
+  launch: 4
+}
+
+function buildProjectPayload() {
+  return {
+    name: form.name,
+    description: form.description,
+    stage: stageToInt[form.stage] ?? 1
+  }
+}
+
 async function createProject() {
   const res = await fetch('/api/projects', {
     method: 'POST',
@@ -377,7 +392,7 @@ async function createProject() {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${userStore.token}`
     },
-    body: JSON.stringify(form)
+    body: JSON.stringify(buildProjectPayload())
   })
   if (!res.ok) throw new Error('创建失败')
 }
@@ -389,7 +404,7 @@ async function updateProject(id: number) {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${userStore.token}`
     },
-    body: JSON.stringify(form)
+    body: JSON.stringify(buildProjectPayload())
   })
   if (!res.ok) throw new Error('更新失败')
 }

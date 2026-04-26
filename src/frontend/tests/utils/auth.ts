@@ -15,7 +15,7 @@ export const test = base.extend<{
     await page.goto(`${baseURL}/login`);
     await page.fill('input[placeholder*="用户"]', 'admin');
     await page.fill('input[placeholder*="密码"]', 'admin123');
-    await page.click('button:has-text("登录")');
+    await page.click('.login-btn');
     await page.waitForURL(`${baseURL}/**`, { timeout: 10_000 });
     await use(page);
   },

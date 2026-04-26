@@ -94,11 +94,6 @@
             <el-option label="ADCP 可发布评审" :value="4" />
           </el-select>
         </el-form-item>
-        <el-form-item label="关联项目">
-          <el-select v-model="form.projectId" placeholder="请选择" style="width:100%">
-            <el-option v-for="p in projects" :key="p.id" :label="p.name" :value="p.id" />
-          </el-select>
-        </el-form-item>
         <el-form-item label="计划评审时间">
           <el-date-picker v-model="form.scheduledAt" type="datetime" value-format="YYYY-MM-DD HH:mm:ss" placeholder="选择日期时间" style="width:100%" />
         </el-form-item>
@@ -150,8 +145,10 @@
 import { ref, reactive, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import { getReviewList, createReview, submitReview, startReview, decideReview } from '@/api/review'
-import { getProjectList } from '@/api/project'
+import { useProjectStore } from '@/stores/project'
 import dayjs from 'dayjs'
+
+const projectStore = useProjectStore()
 
 const loading = ref(false)
 const submitting = ref(false)
@@ -161,11 +158,10 @@ const decideDialogVisible = ref(false)
 const formRef = ref()
 
 const list = ref<any[]>([])
-const projects = ref<any[]>([])
 const currentReview = ref<any>(null)
 const filters = reactive({ type: undefined as number | undefined, status: undefined as number | undefined })
 const pagination = reactive({ page: 1, size: 20, total: 0 })
-const form = reactive<any>({ title: '', type: 1, projectId: undefined, scheduledAt: '' })
+const form = reactive<any>({ title: '', type: 1, scheduledAt: '' })
 const decideForm = reactive<any>({ decision: 1, conclusion: '' })
 
 const rules = {
@@ -183,22 +179,15 @@ function formatDate(d: string) { return d ? dayjs(d).format('YYYY-MM-DD HH:mm') 
 async function fetchList() {
   loading.value = true
   try {
-    const res = await getReviewList({ type: filters.type, status: filters.status, page: pagination.page - 1, size: pagination.size })
+    const res = await getReviewList({ type: filters.type, status: filters.status, projectId: projectStore.selectedProjectId || undefined, page: pagination.page - 1, size: pagination.size })
     if (res.code === 200) { list.value = res.data.content || []; pagination.total = res.data.totalElements || 0 }
   } catch (e: any) { ElMessage.error(e.message || '获取评审列表失败') }
   finally { loading.value = false }
 }
 
-async function fetchProjects() {
-  try {
-    const res = await getProjectList({ page: 0, size: 100 })
-    if (res.code === 200) projects.value = res.data.content || []
-  } catch (e) { console.error(e) }
-}
-
 function resetFilters() { filters.type = undefined; filters.status = undefined; fetchList() }
 
-function showCreateDialog() { Object.assign(form, { title: '', type: 1, projectId: undefined, scheduledAt: '' }); dialogVisible.value = true }
+function showCreateDialog() { Object.assign(form, { title: '', type: 1, scheduledAt: '' }); dialogVisible.value = true }
 
 function showDetail(row: any) { currentReview.value = row; detailVisible.value = true }
 
@@ -207,7 +196,7 @@ async function handleCreate() {
   await formRef.value.validate(async (valid) => {
     if (valid) {
       submitting.value = true
-      try { await createReview(form); ElMessage.success('创建成功'); dialogVisible.value = false; fetchList() }
+      try { await createReview({ ...form, projectId: projectStore.selectedProjectId }); ElMessage.success('创建成功'); dialogVisible.value = false; fetchList() }
       catch (e: any) { ElMessage.error(e.message || '创建失败') }
       finally { submitting.value = false }
     }
@@ -235,7 +224,7 @@ async function handleDecide() {
   } catch (e: any) { ElMessage.error(e.message || '决策失败') }
 }
 
-onMounted(() => { fetchList(); fetchProjects() })
+onMounted(() => { fetchList() })
 </script>
 
 <style scoped>

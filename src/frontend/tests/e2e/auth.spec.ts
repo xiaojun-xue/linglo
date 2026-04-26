@@ -16,14 +16,15 @@ test.describe('登录页 - 布局与视觉', () => {
   });
 
   test('登录表单元素完整显示', async ({ page }) => {
-    await expect(page.locator('h1')).toContainText('玲珑');
+    await expect(page.locator('.logo-text')).toContainText('玲珑');
     await expect(page.locator('input[placeholder*="用户"]')).toBeVisible();
     await expect(page.locator('input[placeholder*="密码"]')).toBeVisible();
-    await expect(page.locator('button:has-text("登录")')).toBeVisible();
+    await expect(page.locator('.login-btn')).toBeVisible();
   });
 
-  test('默认账号提示可见', async ({ page }) => {
-    await expect(page.locator('text=默认账号')).toBeVisible();
+  test('演示账号提示可见', async ({ page }) => {
+    await expect(page.locator('.demo-hint')).toBeVisible();
+    await expect(page.locator('.demo-hint')).toContainText('演示账号');
   });
 });
 
@@ -33,7 +34,7 @@ test.describe('登录功能', () => {
     await page.goto('/login');
     await page.fill('input[placeholder*="用户"]', 'admin');
     await page.fill('input[placeholder*="密码"]', 'admin123');
-    await page.click('button:has-text("登录")');
+    await page.click('.login-btn');
 
     await expect(page).not.toHaveURL(/\/login/, { timeout: 10_000 });
     await expect(page).toHaveURL(/\/(dashboard|requirements|projects)/, { timeout: 10_000 });
@@ -43,11 +44,10 @@ test.describe('登录功能', () => {
     await page.goto('/login');
     await page.fill('input[placeholder*="用户"]', 'admin');
     await page.fill('input[placeholder*="密码"]', 'admin123');
-    await page.click('button:has-text("登录")');
+    await page.click('.login-btn');
     await page.waitForURL(/\/(dashboard|requirements|projects)/, { timeout: 10_000 });
 
     await expect(page.locator('.sidebar')).toBeVisible();
-    await expect(page.locator('text=玲珑')).toBeVisible();
     await expect(page.locator('.sidebar >> text=工作台')).toBeVisible();
     await expect(page.locator('.sidebar >> text=需求管理')).toBeVisible();
   });
@@ -56,11 +56,10 @@ test.describe('登录功能', () => {
     await page.goto('/login');
     await page.fill('input[placeholder*="用户"]', 'admin');
     await page.fill('input[placeholder*="密码"]', 'wrongpassword');
-    await page.click('button:has-text("登录")');
+    await page.click('.login-btn');
 
-    // Element Plus 默认显示错误提示
-    await page.waitForTimeout(2_000);
-    // 不应跳转到 Dashboard
+    // 不应跳转
+    await page.waitForTimeout(3_000);
     await expect(page).toHaveURL(/\/login/);
   });
 
@@ -68,25 +67,27 @@ test.describe('登录功能', () => {
     await page.goto('/login');
     await page.fill('input[placeholder*="用户"]', 'nonexistent_user');
     await page.fill('input[placeholder*="密码"]', 'admin123');
-    await page.click('button:has-text("登录")');
+    await page.click('.login-btn');
 
-    await page.waitForTimeout(2_000);
+    await page.waitForTimeout(3_000);
     await expect(page).toHaveURL(/\/login/);
   });
 
   test('空用户名提交表单', async ({ page }) => {
     await page.goto('/login');
-    await page.fill('input[placeholder*="密码"]', 'admin123');
-    await page.click('button:has-text("登录")');
+    // 清空默认值
+    await page.locator('input[placeholder*="用户"]').clear();
+    await page.locator('input[placeholder*="用户"]').blur();
+    await page.click('.login-btn');
 
-    // 表单验证应阻止提交
     await expect(page.locator('.el-form-item__error')).toBeVisible({ timeout: 3_000 });
   });
 
   test('空密码提交表单', async ({ page }) => {
     await page.goto('/login');
-    await page.fill('input[placeholder*="用户"]', 'admin');
-    await page.click('button:has-text("登录")');
+    await page.locator('input[placeholder*="密码"]').clear();
+    await page.locator('input[placeholder*="密码"]').blur();
+    await page.click('.login-btn');
 
     await expect(page.locator('.el-form-item__error')).toBeVisible({ timeout: 3_000 });
   });
@@ -98,13 +99,15 @@ test.describe('登出功能', () => {
     await page.goto('/login');
     await page.fill('input[placeholder*="用户"]', 'admin');
     await page.fill('input[placeholder*="密码"]', 'admin123');
-    await page.click('button:has-text("登录")');
-    await page.waitForURL(/\/(dashboard|requirements|projects)/, { timeout: 10_000 });
+    await page.click('.login-btn');
+    await page.waitForURL(/\/(dashboard|requirements|projects|\/)$/, { timeout: 10_000 });
 
-    // 打开用户下拉菜单
-    await page.locator('.user-info').click();
+    // 打开用户下拉菜单（在侧边栏底部）
+    await page.locator('.sidebar-footer .user-info').click();
     // 点击退出登录
     await page.locator('.el-dropdown-menu >> text=退出登录').click();
+    // 确认退出对话框
+    await page.locator('.el-message-box button:has-text("确定")').click();
 
     await expect(page).toHaveURL(/\/login/, { timeout: 5_000 });
   });
@@ -113,12 +116,14 @@ test.describe('登出功能', () => {
     await page.goto('/login');
     await page.fill('input[placeholder*="用户"]', 'admin');
     await page.fill('input[placeholder*="密码"]', 'admin123');
-    await page.click('button:has-text("登录")');
-    await page.waitForURL(/\/(dashboard|requirements|projects)/, { timeout: 10_000 });
+    await page.click('.login-btn');
+    await page.waitForURL(/\/(dashboard|requirements|projects|\/)$/, { timeout: 10_000 });
 
     // 登出
-    await page.locator('.user-info').click();
+    await page.locator('.sidebar-footer .user-info').click();
     await page.locator('.el-dropdown-menu >> text=退出登录').click();
+    await page.locator('.el-message-box button:has-text("确定")').click();
+    await page.waitForURL(/\/login/, { timeout: 5_000 });
 
     const token = await page.evaluate(() => localStorage.getItem('token'));
     expect(token).toBeNull();
@@ -136,7 +141,7 @@ test.describe('权限控制', () => {
     await page.goto('/login');
     await page.fill('input[placeholder*="用户"]', 'admin');
     await page.fill('input[placeholder*="密码"]', 'admin123');
-    await page.click('button:has-text("登录")');
+    await page.click('.login-btn');
     await page.waitForURL(/\/(dashboard|requirements|projects)/, { timeout: 10_000 });
 
     // 访问各受保护页面

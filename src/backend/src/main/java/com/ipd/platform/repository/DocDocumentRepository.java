@@ -33,5 +33,7 @@ public interface DocDocumentRepository extends JpaRepository<DocDocument, Long> 
 
     List<DocDocument> findByParentIdOrderBySortOrderAsc(Long parentId);
 
+    List<DocDocument> findByParentIdIsNullOrderBySortOrderAsc();
+
     long countByProjectId(Long projectId);
 }

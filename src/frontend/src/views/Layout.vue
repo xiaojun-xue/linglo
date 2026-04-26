@@ -51,11 +51,6 @@
           <template #title>需求管理</template>
         </el-menu-item>
 
-        <el-menu-item index="/projects">
-          <el-icon><FolderOpened /></el-icon>
-          <template #title>项目管理</template>
-        </el-menu-item>
-
         <el-menu-item index="/tasks">
           <el-icon><List /></el-icon>
           <template #title>任务管理</template>
@@ -133,6 +128,11 @@
       <el-header class="main-header">
         <div class="header-left">
           <h1 class="page-title">{{ pageTitle }}</h1>
+          <div v-if="projectStore.hasProject && currentRoute !== '/'" class="project-indicator">
+            <el-icon><FolderOpened /></el-icon>
+            <span class="indicator-name">{{ projectStore.projectName }}</span>
+            <el-button text size="small" @click="$router.push('/')">切换</el-button>
+          </div>
         </div>
         <div class="header-right">
           <el-badge :value="unreadCount" :hidden="unreadCount === 0" :max="99">
@@ -158,14 +158,16 @@ import { ref, computed, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { useUserStore } from '@/stores/user'
+import { useProjectStore } from '@/stores/project'
 import {
   HomeFilled, Document, FolderOpened, List, Grid, Guide, Finished, Reading,
-  User, Bell, Fold, Expand, ArrowDown, SwitchButton, Setting, UserFilled
+  User, Bell, Fold, Expand, ArrowDown, SwitchButton, Setting, UserFilled, CircleCheck as Passed
 } from '@element-plus/icons-vue'
 
 const router = useRouter()
 const route = useRoute()
 const userStore = useUserStore()
+const projectStore = useProjectStore()
 
 const isCollapse = ref(false)
 const unreadCount = ref(0)
@@ -175,7 +177,6 @@ const currentRoute = computed(() => route.path)
 const pageTitleMap: Record<string, string> = {
   '/': '工作台',
   '/requirements': '需求管理',
-  '/projects': '项目管理',
   '/tasks': '任务管理',
   '/sprints': 'Sprint 管理',
   '/reviews': '评审管理',
@@ -238,6 +239,8 @@ function handleCommand(command: string) {
 }
 
 onMounted(() => {
+  // 初始化项目列表
+  projectStore.fetchProjects()
   // 加载未读通知数
   userStore.fetchUnreadCount?.().then((count: number) => {
     unreadCount.value = count
@@ -490,6 +493,32 @@ onMounted(() => {
   font-weight: 600;
   color: var(--color-text-primary);
   margin: 0;
+}
+
+.project-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 16px;
+  padding: 4px 12px;
+  background: rgba(26, 54, 93, 0.06);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.project-indicator .el-icon {
+  color: var(--color-primary);
+  font-size: 14px;
+}
+
+.indicator-name {
+  font-weight: 500;
+  color: var(--color-text-primary);
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .header-right {

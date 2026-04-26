@@ -180,4 +180,12 @@ public class AuthService {
     public Long getCurrentUserId() {
         return getCurrentUserDetails().getId();
     }
+
+    /**
+     * 判断当前用户是否为管理员
+     */
+    public boolean isCurrentUserAdmin() {
+        return getCurrentUserDetails().getAuthorities().stream()
+                .anyMatch(a -> "ROLE_ADMIN".equals(a.getAuthority()));
+    }
 }
